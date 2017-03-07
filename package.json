@@ -1,0 +1,25 @@
+{
+  "name": "munch-server",
+  "version": "1.0.0-alpha0.1",
+  "description": "A REST service that parses RSS feeds and returns JSON data",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha test/**.spec.js",
+    "test-acceptance" : "mocha test/acceptance/**.spec.js",
+    "test-unit" : "mocha test/unit/**.spec.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "cors": "^2.8.1",
+    "express": "^4.14.1",
+    "feed-read": "0.0.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.2.0"
+  }
+}

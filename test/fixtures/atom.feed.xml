@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>The Verge - All Posts</title>
+	<icon>https://cdn1.vox-cdn.com/community_logos/34086/verge-fv.png</icon>
+	<updated>2017-02-20T17:53:19-05:00</updated>
+	<id>http://www.theverge.com/rss/full.xml</id>
+	<link type="text/html" href="http://www.theverge.com/" rel="alternate"/>
+	<entry>
+		<published>2017-02-20T17:53:19-05:00</published>
+		<updated>2017-02-20T17:53:19-05:00</updated>
+		<title>Do we need a wearable voice recorder to take notes for us?</title>
+		<content type="html">
+			&lt;img alt=""src="https://cdn0.vox-cdn.com"/&gt;
+			&lt;p id="PV747w"&gt;The Verge
+			&lt;/p&gt;
+
+		</content>
+		<link rel="alternate" type="text/html"
+			  href="http://www.theverge.com/circuitbreaker/2017/2/20/14673906/senstone-kickstarter-campaign-release"/>
+		<id>http://www.theverge.com/circuitbreaker/2017/2/20/14673906/senstone-kickstarter-campaign-release</id>
+		<author>
+			<name>Ashley Carman</name>
+		</author>
+	</entry>
+</feed>
