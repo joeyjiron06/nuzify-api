@@ -1,0 +1,665 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:dc="https://purl.org/dc/elements/1.1/"
+     xmlns:itunes="https://www.itunes.com/dtds/podcast-1.0.dtd">
+  <channel>
+    <title>Engadget RSS Feed</title>
+    <link>https://www.engadget.com/rss.xml</link>
+    <image>
+      <url>https://www.blogsmithmedia.com/www.engadget.com/media/feedlogo.gif?cachebust=true</url>
+      <title>Engadget RSS Feed</title>
+      <link>https://www.engadget.com/rss.xml</link>
+    </image>
+    <language>en-us</language>
+    <description>Engadget is a web magazine with obsessive daily coverage of everything new in gadgets and consumer
+      electronics
+    </description>
+    <copyright>Copyright 2017 AOL Inc. The contents of this feed are available for non-commercial use only.</copyright>
+    <item>
+      <title><![CDATA[How to stop the Nintendo Switch's Joy-Con from losing sync]]></title>
+      <link>https://www.engadget.com/2017/03/07/how-to-stop-the-nintendo-switchs-joy-con-from-losing-sync/</link>
+      <guid isPermaLink="false">
+        https://www.engadget.com/2017/03/07/how-to-stop-the-nintendo-switchs-joy-con-from-losing-sync/
+      </guid>
+      <comments>
+        https://www.engadget.com/2017/03/07/how-to-stop-the-nintendo-switchs-joy-con-from-losing-sync/#comments
+      </comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/dims-shared/dims3/GLOB/crop/1600x1049+0+0/resize/1600x1049!/format/jpg/quality/85/https://s.aolcdn.com/hss/storage/midas/9b8dc9fed589c7cd0a90dd138d485d31/204974161/Nintendo+Switch+preview+gallery+11.jpg" />It seems as if your left Nintendo Switch Joy-Con hasn&#039;t lost sync with the console yet, it&#039;s only a matter of time before that could happen. As we saw in iFixit&#039;s teardown of the console, the pair are almost identical save for a few things like anten...
+				]]>
+      </description>
+      <category>av</category>
+      <category>bluetooth</category>
+      <category>gaming</category>
+      <category>joycon</category>
+      <category>nintendo</category>
+      <category>nintendoswitch</category>
+      <category>solder</category>
+      <category>switch</category>
+      <category>teardown</category>
+      <dc:creator><![CDATA[Timothy J. Seppala]]></dc:creator>
+      <pubDate>Tue, 07 Mar 2017 01:20:00 -0500</pubDate>
+      <dc:identifier>21|21874906</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[How Sonos made the new Playbase sound a lot better than it should]]></title>
+      <link>https://www.engadget.com/2017/03/07/sonos-playbase-speaker-hands-on-behind-the-scenes/</link>
+      <guid isPermaLink="false">https://www.engadget.com/2017/03/07/sonos-playbase-speaker-hands-on-behind-the-scenes/
+      </guid>
+      <comments>https://www.engadget.com/2017/03/07/sonos-playbase-speaker-hands-on-behind-the-scenes/#comments
+      </comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/hss/storage/midas/bd85837ea7312b8381be4b38144d91cf/205017524/DSCF5843.jpg" />Amazon upended the home speaker space with the Echo, causing other companies to start figuring out voice control systems of their own. Sonos, which has made WiFi-enabled speakers for years, has repeatedly reassured customers that it, too, would event...
+				]]>
+      </description>
+      <category>av</category>
+      <category>danakrieger</category>
+      <category>gear</category>
+      <category>gilesmartin</category>
+      <category>hometheaterspeaker</category>
+      <category>playbase</category>
+      <category>sonos</category>
+      <category>sonosplaybase</category>
+      <category>video</category>
+      <category>wifispeaker</category>
+      <dc:creator><![CDATA[Nathan Ingraham]]></dc:creator>
+      <pubDate>Tue, 07 Mar 2017 00:01:00 -0500</pubDate>
+      <dc:identifier>21|21874530</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[VW's 'Sedric' self-driving car could chauffer you or strangers]]></title>
+      <link>https://www.engadget.com/2017/03/06/vws-sedric-self-driving-car-could-chauffer-you-or-strangers/</link>
+      <guid isPermaLink="false">
+        https://www.engadget.com/2017/03/06/vws-sedric-self-driving-car-could-chauffer-you-or-strangers/
+      </guid>
+      <comments>
+        https://www.engadget.com/2017/03/06/vws-sedric-self-driving-car-could-chauffer-you-or-strangers/#comments
+      </comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/hss/storage/midas/86b6197bbcdd49d3bc1ccb8dde732b33/205018917/sedriccomposite.jpg" />Volkswagen is planning for the future. Today the automaker laid out its plans for Sedric -- short for &quot;self-driving car&quot; -- a sort of hybrid between car ownership and ride-sharing. The boxy, Level 5 autonomous vehicle (no need for a human driver) is...
+				]]>
+      </description>
+      <category>autonomouscar</category>
+      <category>concept</category>
+      <category>conceptcar</category>
+      <category>gear</category>
+      <category>hud</category>
+      <category>level5</category>
+      <category>levelfive</category>
+      <category>oled</category>
+      <category>sedric</category>
+      <category>selfdrivingcar</category>
+      <category>thebutton</category>
+      <category>transportation</category>
+      <category>volkswagen</category>
+      <dc:creator><![CDATA[Timothy J. Seppala]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 23:57:00 -0500</pubDate>
+      <dc:identifier>21|21874743</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[The Switch is the fastest-selling console in Nintendo history]]></title>
+      <link>https://www.engadget.com/2017/03/06/the-switch-is-the-fastest-selling-console-in-nintendo-history/</link>
+      <guid isPermaLink="false">
+        https://www.engadget.com/2017/03/06/the-switch-is-the-fastest-selling-console-in-nintendo-history/
+      </guid>
+      <comments>
+        https://www.engadget.com/2017/03/06/the-switch-is-the-fastest-selling-console-in-nintendo-history/#comments
+      </comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/dims-shared/dims3/GLOB/crop/750x422+0+0/resize/1600x900!/format/jpg/quality/85/https://s.aolcdn.com/hss/storage/midas/139a5a28aa6ba7cb618d7047e533aadb/204999943/ninswi-main-video-dl.jpg" />If you&#039;ve had a hard time finding a Nintendo Switch at the store, there may be good reason for that. The Friday through Saturday sales for Nintendo&#039;s latest console surpassed the first two-day sales for any system &quot;in Nintendo history,&quot; according to...
+				]]>
+      </description>
+      <category>breathofthewild</category>
+      <category>business</category>
+      <category>gaming</category>
+      <category>launch</category>
+      <category>legendofzeldabreathofthewild</category>
+      <category>nintendo</category>
+      <category>nintendoswitch</category>
+      <category>sales</category>
+      <category>switch</category>
+      <category>systemlaunch</category>
+      <category>wii</category>
+      <category>zelda</category>
+      <dc:creator><![CDATA[Timothy J. Seppala]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 23:23:00 -0500</pubDate>
+      <dc:identifier>21|21874873</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[MIT finds an easy way to control robots with your brain]]></title>
+      <link>https://www.engadget.com/2017/03/06/mit-csail-mind-control-robot/</link>
+      <guid isPermaLink="false">https://www.engadget.com/2017/03/06/mit-csail-mind-control-robot/</guid>
+      <comments>https://www.engadget.com/2017/03/06/mit-csail-mind-control-robot/#comments</comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/hss/storage/midas/5d4aa86513dd559c857cf10ee9d29814/205018814/mit-mind-controlled-robots.jpg" />A team from MIT&#039;s Computer Science and Artificial Intelligence Laboratory (CSAIL) wanted robots to be a more natural extension of our bodies. See, you&#039;d usually have to issue vocal or very specific mental commands to control machines. But the method...
+				]]>
+      </description>
+      <category>baxter</category>
+      <category>csail</category>
+      <category>gear</category>
+      <category>mind-controlledrobots</category>
+      <category>mit</category>
+      <category>rethinkrobotics</category>
+      <category>robots</category>
+      <dc:creator><![CDATA[Mariella Moon]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 22:33:00 -0500</pubDate>
+      <dc:identifier>21|21874800</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[Google's AI-powered translator works with three more languages]]></title>
+      <link>https://www.engadget.com/2017/03/06/googles-ai-powered-translator-works-with-three-more-languages/</link>
+      <guid isPermaLink="false">
+        https://www.engadget.com/2017/03/06/googles-ai-powered-translator-works-with-three-more-languages/
+      </guid>
+      <comments>
+        https://www.engadget.com/2017/03/06/googles-ai-powered-translator-works-with-three-more-languages/#comments
+      </comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/hss/storage/midas/de29e700df21571632d8270ade02250d/204596106/googletranslate-ed.jpg" />Google wants language translation to sound more natural. Last year, it began moving away from phrase-based machine translation and created an AI-powered system called Google Neural Machine Translation (GNMT). Now, the company says it&#039;s expanding GNMT...
+				]]>
+      </description>
+      <category>ai</category>
+      <category>google</category>
+      <category>googletranslate</category>
+      <category>internet</category>
+      <category>language</category>
+      <category>neuralmachinetranslation</category>
+      <category>neuralnetwork</category>
+      <category>science</category>
+      <category>translate</category>
+      <category>translation</category>
+      <dc:creator><![CDATA[Stefanie Fogel]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 21:41:00 -0500</pubDate>
+      <dc:identifier>21|21874688</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[What's on TV: 'Ghost Recon,' 'Love,' 'The Americans']]></title>
+      <link>https://www.engadget.com/2017/03/06/whats-on-tv-ghost-recon-love-the-americans/</link>
+      <guid isPermaLink="false">https://www.engadget.com/2017/03/06/whats-on-tv-ghost-recon-love-the-americans/</guid>
+      <comments>https://www.engadget.com/2017/03/06/whats-on-tv-ghost-recon-love-the-americans/#comments</comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/hss/storage/midas/d6ea026a0fad6550277b9ef2e590bfac/205018845/01_161203_07_TWO_SHOT_005-v2+copy.jpg" />This week&#039;s big game release is the latest entry in the Ghost Recon series. This time the adventuring is in an open world, but if you ask us, Wildlands loses some of the stealth and teamwork that made games like GRAW so great. We&#039;re also welcoming ba...
+				]]>
+      </description>
+      <category>av</category>
+      <category>entertainment</category>
+      <category>listings</category>
+      <category>mustseehdtv</category>
+      <category>video</category>
+      <dc:creator><![CDATA[Richard Lawler]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 20:37:00 -0500</pubDate>
+      <dc:identifier>21|21874810</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[Twitch goes full Facebook]]></title>
+      <link>https://www.engadget.com/2017/03/06/twitch-pulse-social-network-facebook-news-feed/</link>
+      <guid isPermaLink="false">https://www.engadget.com/2017/03/06/twitch-pulse-social-network-facebook-news-feed/
+      </guid>
+      <comments>https://www.engadget.com/2017/03/06/twitch-pulse-social-network-facebook-news-feed/#comments</comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/hss/storage/midas/340d32ec4fce3256d514264981283334/205018674/Screen+Shot+2017-03-06+at+4.23.31+PM.png" />Twitch is starting to look a lot like Facebook or Twitter. Following the addition of private messaging and live update tools, today Twitch unveiled Pulse, the next step in the site&#039;s transformation into a full-on social networking service. Pulse allo...
+				]]>
+      </description>
+      <category>amazon</category>
+      <category>av</category>
+      <category>gaming</category>
+      <category>internet</category>
+      <category>live</category>
+      <category>livestream</category>
+      <category>personal computing</category>
+      <category>personalcomputing</category>
+      <category>socialnetworking</category>
+      <category>twitch</category>
+      <dc:creator><![CDATA[Jessica Conditt]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 20:03:00 -0500</pubDate>
+      <dc:identifier>21|21874727</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[Robots could wear flesh to help form transplants]]></title>
+      <link>https://www.engadget.com/2017/03/06/robots-wear-flesh-to-improve-transplants/</link>
+      <guid isPermaLink="false">https://www.engadget.com/2017/03/06/robots-wear-flesh-to-improve-transplants/</guid>
+      <comments>https://www.engadget.com/2017/03/06/robots-wear-flesh-to-improve-transplants/#comments</comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/dims-shared/dims3/GLOB/crop/6927x4016+295+0/resize/1600x928!/format/jpg/quality/85/https://s.aolcdn.com/hss/storage/midas/779f781e9fddbf2807917cffa9dcb541/205018398/485042884.jpg" />Right now, you have to grow human transplants in a stationary environment.  That&#039;s more than a little dangerous when they could buckle under the stresses of a real body.  Oxford University may have a clever (if slightly ghastly) solution to that prob...
+				]]>
+      </description>
+      <category>bioprinting</category>
+      <category>graft</category>
+      <category>health</category>
+      <category>medicine</category>
+      <category>oxforduniversity</category>
+      <category>robopocalypse</category>
+      <category>robots</category>
+      <category>science</category>
+      <category>tissue</category>
+      <category>transplant</category>
+      <dc:creator><![CDATA[Jon Fingas]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 19:01:00 -0500</pubDate>
+      <dc:identifier>21|21874697</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[AI predicts how athletes will react in certain situations]]></title>
+      <link>https://www.engadget.com/2017/03/06/deep-learning-studies-athlete-decisions/</link>
+      <guid isPermaLink="false">https://www.engadget.com/2017/03/06/deep-learning-studies-athlete-decisions/</guid>
+      <comments>https://www.engadget.com/2017/03/06/deep-learning-studies-athlete-decisions/#comments</comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/dims-shared/dims3/GLOB/crop/3736x2544+0+0/resize/1600x1090!/format/jpg/quality/85/https://s.aolcdn.com/hss/storage/midas/bb9f65c31be1e9349b98c964aa75a4ec/205017986/465659381.jpg" />When you think of sports analysis, you probably think of raw stats like time in the opposing half or shots on goal. However, that doesn&#039;t really tell teams how they should have played beyond vague suggestions. Researchers at Disney, Caltech and STATS...
+				]]>
+      </description>
+      <category>ai</category>
+      <category>athlete</category>
+      <category>athletics</category>
+      <category>deeplearning</category>
+      <category>disneyresearch</category>
+      <category>machinelearning</category>
+      <category>neuralnetwork</category>
+      <category>robots</category>
+      <category>science</category>
+      <category>sports</category>
+      <dc:creator><![CDATA[Jon Fingas]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 18:04:00 -0500</pubDate>
+      <dc:identifier>21|21874640</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[Major League Baseball approves another wearable for in-game use]]></title>
+      <link>https://www.engadget.com/2017/03/06/major-league-baseball-whoop-wearable-in-game-use/</link>
+      <guid isPermaLink="false">https://www.engadget.com/2017/03/06/major-league-baseball-whoop-wearable-in-game-use/
+      </guid>
+      <comments>https://www.engadget.com/2017/03/06/major-league-baseball-whoop-wearable-in-game-use/#comments
+      </comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/dims-shared/dims3/GLOB/crop/3164x2160+0+0/resize/1600x1092!/format/jpg/quality/85/https://s.aolcdn.com/hss/storage/midas/ad413ab4529441db578bef2b7dba72b/205018274/RTS11GVN.jpeg" />Major League Baseball began allowing players to use two wearable devices during games before the 2016 season started. The league is now adding another gadget to its approved list: the Whoop Strap. While the device has been around for awhile now, play...
+				]]>
+      </description>
+      <category>activitytracker</category>
+      <category>baseball</category>
+      <category>entertainment</category>
+      <category>gear</category>
+      <category>majorleaguebaseball</category>
+      <category>mlb</category>
+      <category>sports</category>
+      <category>wearables</category>
+      <category>whoop</category>
+      <dc:creator><![CDATA[Billy Steele]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 17:36:00 -0500</pubDate>
+      <dc:identifier>21|21874647</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[PS Vue adds multi-picture feature just in time for March Madness]]></title>
+      <link>https://www.engadget.com/2017/03/06/ps-vue-multiview-mode/</link>
+      <guid isPermaLink="false">https://www.engadget.com/2017/03/06/ps-vue-multiview-mode/</guid>
+      <comments>https://www.engadget.com/2017/03/06/ps-vue-multiview-mode/#comments</comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/hss/storage/midas/78ee7cef9c88e318851bb6c4133114f8/205017501/ps+vue+multiview.jpg" />Sony is launching a new multi-view feature on PlayStation Vue at a very opportune time for sports fans. March Madness begins next week, and starting today, subscribers to the streaming service can watch up to three live channels simultaneously on one...
+				]]>
+      </description>
+      <category>entertainment</category>
+      <category>multi-view</category>
+      <category>picture-in-picture</category>
+      <category>playstationvue</category>
+      <category>psvue</category>
+      <category>services</category>
+      <category>sony</category>
+      <dc:creator><![CDATA[Stefanie Fogel]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 17:02:00 -0500</pubDate>
+      <dc:identifier>21|21874591</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA['Outlast 2' will seriously creep you out this April]]></title>
+      <link>https://www.engadget.com/2017/03/06/outlast-2-creep-you-out-april/</link>
+      <guid isPermaLink="false">https://www.engadget.com/2017/03/06/outlast-2-creep-you-out-april/</guid>
+      <comments>https://www.engadget.com/2017/03/06/outlast-2-creep-you-out-april/#comments</comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/hss/storage/midas/1a5904ced4d7a2512760d80542df06e8/205017875/outlast2-ed.jpg" />The follow-up to hit survival-horror game Outlast is coming to PC, Xbox One and Playstation 4 on April 25. Outlast 2 will attempt to raise the creep factor with more genre-defining &quot;WTF&quot; moments than were possible in the first game, due to budgetary...
+				]]>
+      </description>
+      <category>gaming</category>
+      <category>horror</category>
+      <category>outlast</category>
+      <category>outlast2</category>
+      <category>pc</category>
+      <category>personal computing</category>
+      <category>personalcomputing</category>
+      <category>playstation4</category>
+      <category>redbarrelgames</category>
+      <category>sequel</category>
+      <category>survival</category>
+      <category>video</category>
+      <category>xboxone</category>
+      <dc:creator><![CDATA[Rob LeFebvre]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 16:38:00 -0500</pubDate>
+      <dc:identifier>21|21874611</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[Amazon Echo can add to your Office 365 calendar]]></title>
+      <link>https://www.engadget.com/2017/03/06/amazon-alexa-office-365-calendar-support/</link>
+      <guid isPermaLink="false">https://www.engadget.com/2017/03/06/amazon-alexa-office-365-calendar-support/</guid>
+      <comments>https://www.engadget.com/2017/03/06/amazon-alexa-office-365-calendar-support/#comments</comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/dims-shared/dims3/GLOB/crop/4000x2667+0+0/resize/1600x1067!/format/jpg/quality/85/https://s.aolcdn.com/hss/storage/midas/d90c87e77344bed24491ebe20112436a/204603304/605578820.jpg" />Amazon&#039;s Echo speakers and other Alexa devices can already control your Outlook.com calendar, but what about your schedule at work?  You&#039;re covered there, too.  Alexa now supports Office 365&#039;s calendar functions, giving you a hands-free way of checki...
+				]]>
+      </description>
+      <category>alexa</category>
+      <category>amazon</category>
+      <category>av</category>
+      <category>calendar</category>
+      <category>echo</category>
+      <category>gear</category>
+      <category>internet</category>
+      <category>microsoft</category>
+      <category>office365</category>
+      <category>voicecontrol</category>
+      <category>voicerecognition</category>
+      <dc:creator><![CDATA[Jon Fingas]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 16:15:00 -0500</pubDate>
+      <dc:identifier>21|21874609</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[Netflix wants another 'Gilmore Girls' season]]></title>
+      <link>https://www.engadget.com/2017/03/06/netflix-wants-another-gilmore-girls-season/</link>
+      <guid isPermaLink="false">https://www.engadget.com/2017/03/06/netflix-wants-another-gilmore-girls-season/</guid>
+      <comments>https://www.engadget.com/2017/03/06/netflix-wants-another-gilmore-girls-season/#comments</comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/dims-shared/dims3/GLOB/crop/1400x806+0+0/resize/1600x921!/format/jpg/quality/85/https://s.aolcdn.com/hss/storage/midas/2f0a1759d2cd644e79ddefc86bf45804/205016331/dims.jpeg" />Gilmore Girls creator Amy Sherman-Palladino already knew what the last four words of the show would be when it started shooting in 2000. Sixteen years later, those lines were finally delivered last year in Netflix&#039;s mini-series revival Gilmore Girls:...
+				]]>
+      </description>
+      <category>alexisbledel</category>
+      <category>amyshermanpalladino</category>
+      <category>av</category>
+      <category>entertainment</category>
+      <category>gilmoregirls</category>
+      <category>gilmoregirlsayearinthelife</category>
+      <category>laurengraham</category>
+      <category>netflix</category>
+      <category>tedsarandos</category>
+      <dc:creator><![CDATA[Derrick Rossignol]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 15:53:00 -0500</pubDate>
+      <dc:identifier>21|21874474</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[Verizon offers pre-paid FiOS service plans]]></title>
+      <link>https://www.engadget.com/2017/03/06/verizon-offers-pre-paid-fios-service-plans/</link>
+      <guid isPermaLink="false">https://www.engadget.com/2017/03/06/verizon-offers-pre-paid-fios-service-plans/</guid>
+      <comments>https://www.engadget.com/2017/03/06/verizon-offers-pre-paid-fios-service-plans/#comments</comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/dims-shared/dims3/GLOB/crop/3000x2102+0+0/resize/1600x1121!/format/jpg/quality/85/http://hss-prod.hss.aol.com/hss/storage/midas/f1f41bf10321989e45935b9caab510de/201409680/94856472.jpg" />Verizon announced on Monday that it is making its FiOS fiber-optic data, voice and television package available as a pre-paid service. That means you won&#039;t need to submit to a credit check, pay a deposit fee or even leave a credit card number to get...
+				]]>
+      </description>
+      <category>av</category>
+      <category>cable</category>
+      <category>fios</category>
+      <category>gear</category>
+      <category>internet</category>
+      <category>phone</category>
+      <category>prepaid</category>
+      <category>service</category>
+      <category>services</category>
+      <category>television</category>
+      <category>tv</category>
+      <category>verizon</category>
+      <category>voice</category>
+      <dc:creator><![CDATA[Andrew Tarantola]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 15:32:00 -0500</pubDate>
+      <dc:identifier>21|21874610</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[The tech that makes MMO development easy for indies]]></title>
+      <link>https://www.engadget.com/2017/03/06/spatialos-mmo-development-worlds-adrift-vanishing-stars-gdc/</link>
+      <guid isPermaLink="false">
+        https://www.engadget.com/2017/03/06/spatialos-mmo-development-worlds-adrift-vanishing-stars-gdc/
+      </guid>
+      <comments>
+        https://www.engadget.com/2017/03/06/spatialos-mmo-development-worlds-adrift-vanishing-stars-gdc/#comments
+      </comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/hss/storage/midas/3ac9e070841c252d66ad4d63d20bac19/205017742/worldsadrift.jpg" />SpatialOS is the technical foundation that makes massive, persistent, online world-building possible, even for small video game studios. Think of large, mainstream games like Destiny or Elder Scrolls Online: These are huge universes that support thou...
+				]]>
+      </description>
+      <category>av</category>
+      <category>bossastudios</category>
+      <category>cloud</category>
+      <category>design</category>
+      <category>gaming</category>
+      <category>gdc2017</category>
+      <category>google</category>
+      <category>improbable</category>
+      <category>personal computing</category>
+      <category>personalcomputing</category>
+      <category>server</category>
+      <category>servers</category>
+      <category>services</category>
+      <category>spatialos</category>
+      <category>vanishingstars</category>
+      <category>video</category>
+      <dc:creator><![CDATA[Jessica Conditt]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 15:10:00 -0500</pubDate>
+      <dc:identifier>21|21874560</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[Public Access' time is done, but a better Engadget community awaits]]></title>
+      <link>https://www.engadget.com/2017/03/06/public-access-time-is-done-but-a-better-engadget-community-awa/</link>
+      <guid isPermaLink="false">
+        https://www.engadget.com/2017/03/06/public-access-time-is-done-but-a-better-engadget-community-awa/
+      </guid>
+      <comments>
+        https://www.engadget.com/2017/03/06/public-access-time-is-done-but-a-better-engadget-community-awa/#comments
+      </comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/dims-shared/dims3/GLOB/crop/4000x2828+0+0/resize/1600x1131!/format/jpg/quality/85/https://s.aolcdn.com/hss/storage/midas/f9292a491c630cb47d2504492503ae94/205017729/642307542.jpg" />It&#039;s been just shy of two years since we unveiled Public Access, our grand experiment in community contribution. In that time, we&#039;ve seen some excellent stories published on the platform by you, and we are grateful for those efforts. Today, however,...
+				]]>
+      </description>
+      <category>comments</category>
+      <category>community</category>
+      <category>culture</category>
+      <category>engadget</category>
+      <category>entertainment</category>
+      <category>gaming</category>
+      <category>gear</category>
+      <category>internet</category>
+      <category>personal computing</category>
+      <category>publicaccess</category>
+      <category>science</category>
+      <dc:creator><![CDATA[Michael Gorman]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 14:48:00 -0500</pubDate>
+      <dc:identifier>21|21865917</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[Nintendo Switch controllers can steer games on your computer]]></title>
+      <link>https://www.engadget.com/2017/03/06/nintendo-switch-joy-con-works-with-pc/</link>
+      <guid isPermaLink="false">https://www.engadget.com/2017/03/06/nintendo-switch-joy-con-works-with-pc/</guid>
+      <comments>https://www.engadget.com/2017/03/06/nintendo-switch-joy-con-works-with-pc/#comments</comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/dims-shared/dims3/GLOB/crop/1600x1067+0+0/resize/1600x1067!/format/jpg/quality/85/https://s.aolcdn.com/hss/storage/midas/fd883a80a7ed8ab79016f118643010cc/204817407/controlers.jpg" />Ever since gamers discovered that the Nintendo Switch&#039;s Pro Controller works with computers, there&#039;s been a lingering question: what about the Joy-Cons you get with the system itself?  Yes, thankfully.  Both Nintendo Actu and Sam Williams have verifi...
+				]]>
+      </description>
+      <category>android</category>
+      <category>controller</category>
+      <category>games</category>
+      <category>gaming</category>
+      <category>gear</category>
+      <category>joy-con</category>
+      <category>mac</category>
+      <category>macos</category>
+      <category>mobile</category>
+      <category>nintendo</category>
+      <category>personal computing</category>
+      <category>personalcomputing</category>
+      <category>switch</category>
+      <category>videogames</category>
+      <category>windows</category>
+      <dc:creator><![CDATA[Jon Fingas]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 14:26:00 -0500</pubDate>
+      <dc:identifier>21|21874590</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[Twitter suspends ex-KKK leader David Duke... then brings him back]]></title>
+      <link>https://www.engadget.com/2017/03/06/twitter-suspends-ex-kkk-leader-david-duke-then-brings-him-bac/</link>
+      <guid isPermaLink="false">
+        https://www.engadget.com/2017/03/06/twitter-suspends-ex-kkk-leader-david-duke-then-brings-him-bac/
+      </guid>
+      <comments>
+        https://www.engadget.com/2017/03/06/twitter-suspends-ex-kkk-leader-david-duke-then-brings-him-bac/#comments
+      </comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/hss/storage/midas/adc324e8ee6c70eb52f8205dfde7f124/205017768/57487273-ed.jpg" />David Duke, the former head of the Ku Klux Klan and vocal white supremacist, was suspended from Twitter this morning. And then the social network restored his account, albeit with a reset follower count. Twitter hasn&#039;t commented on the initial decisi...
+				]]>
+      </description>
+      <category>culture</category>
+      <category>davidduke</category>
+      <category>internet</category>
+      <category>politics</category>
+      <category>suspension</category>
+      <category>twitter</category>
+      <dc:creator><![CDATA[Devindra Hardawar]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 14:04:00 -0500</pubDate>
+      <dc:identifier>21|21874562</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[Jay Z launches a venture capital firm to back startups]]></title>
+      <link>https://www.engadget.com/2017/03/06/jay-z-launches-venture-capital-firm/</link>
+      <guid isPermaLink="false">https://www.engadget.com/2017/03/06/jay-z-launches-venture-capital-firm/</guid>
+      <comments>https://www.engadget.com/2017/03/06/jay-z-launches-venture-capital-firm/#comments</comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/dims-shared/dims3/GLOB/crop/3600x2400+0+0/resize/1600x1067!/format/jpg/quality/85/https://s.aolcdn.com/hss/storage/midas/f63fe6dd2edcea3c60c5447af82ef/205017246/513200254.jpg" />Jay Z was rumored to be launching a venture capital firm, and it looks like the scuttlebutt was true. His company Roc Nation has formed Arrive, a VC &quot;platform&quot; that will help younger startups build their brands and businesses. Roc is betting that its...
+				]]>
+      </description>
+      <category>arrive</category>
+      <category>business</category>
+      <category>culture</category>
+      <category>jayz</category>
+      <category>rocnation</category>
+      <category>startup</category>
+      <category>vc</category>
+      <category>venturecapital</category>
+      <dc:creator><![CDATA[Jon Fingas]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 13:38:00 -0500</pubDate>
+      <dc:identifier>21|21874581</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[Facebook now flags fake news]]></title>
+      <link>https://www.engadget.com/2017/03/06/facebook-now-flags-fake-news/</link>
+      <guid isPermaLink="false">https://www.engadget.com/2017/03/06/facebook-now-flags-fake-news/</guid>
+      <comments>https://www.engadget.com/2017/03/06/facebook-now-flags-fake-news/#comments</comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/dims-shared/dims3/GLOB/crop/4673x3115+0+0/resize/1600x1067!/format/jpg/quality/85/https://s.aolcdn.com/hss/storage/midas/ce11aeb6cfc826a233164263f7709de/204914819/632846050.jpg" />After taking heat for months in the run up to the presidential elections, Facebook has been cracking down on fake news spreading through its social network. The company recently began using third-party fact-checkers and gave its users the ability to...
+				]]>
+      </description>
+      <category>android</category>
+      <category>banner</category>
+      <category>culture</category>
+      <category>donaldtrump</category>
+      <category>facebook</category>
+      <category>fakenews</category>
+      <category>flagging</category>
+      <category>internet</category>
+      <category>label</category>
+      <category>politifact.com</category>
+      <dc:creator><![CDATA[Andrew Tarantola]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 13:15:00 -0500</pubDate>
+      <dc:identifier>21|21874574</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[Russian hackers are extorting American left-wing groups]]></title>
+      <link>https://www.engadget.com/2017/03/06/russian-hackers-extort-american-left-wing-groups/</link>
+      <guid isPermaLink="false">https://www.engadget.com/2017/03/06/russian-hackers-extort-american-left-wing-groups/
+      </guid>
+      <comments>https://www.engadget.com/2017/03/06/russian-hackers-extort-american-left-wing-groups/#comments
+      </comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/dims-shared/dims3/GLOB/crop/7200x4050+0+0/resize/1600x900!/format/jpg/quality/85/https://s.aolcdn.com/hss/storage/midas/5ab74fae55fc73f1b2a805d0f994271c/205016886/635938130.jpg" />Russian hackers aren&#039;t done trying to influence American politics just because the presidential election is over, if you believe Bloomberg&#039;s sources.  The news outlet understands that the FBI is investigating &quot;at least a dozen&quot; incidents where Russia...
+				]]>
+      </description>
+      <category>cozybear</category>
+      <category>culture</category>
+      <category>fancybear</category>
+      <category>fbi</category>
+      <category>hack</category>
+      <category>hacking</category>
+      <category>internet</category>
+      <category>politics</category>
+      <category>russia</category>
+      <category>security</category>
+      <dc:creator><![CDATA[Jon Fingas]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 12:44:00 -0500</pubDate>
+      <dc:identifier>21|21874513</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[Blue Origin's latest rocket engine is finally complete]]></title>
+      <link>https://www.engadget.com/2017/03/06/blue-origins-latest-rocket-engine-is-finally-complete/</link>
+      <guid isPermaLink="false">
+        https://www.engadget.com/2017/03/06/blue-origins-latest-rocket-engine-is-finally-complete/
+      </guid>
+      <comments>https://www.engadget.com/2017/03/06/blue-origins-latest-rocket-engine-is-finally-complete/#comments
+      </comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/hss/storage/midas/8d9c2237b6ec7092e7132ef56130487b/205017151/C6PVqvpWMAIDq4V-ed.jpg" />After six years of development, the first of Blue Origin&#039;s new BE-4 rocket engines has finally been fully assembled. The company&#039;s founder and CEO, Jeff Bezos, debuted the images via a series of tweets.
+				]]>
+      </description>
+      <category>be-3</category>
+      <category>be-4</category>
+      <category>be-4engine</category>
+      <category>blueorigin</category>
+      <category>capecanaveral</category>
+      <category>jeffbezos</category>
+      <category>moon</category>
+      <category>newglenn</category>
+      <category>newshephard</category>
+      <category>orbit</category>
+      <category>rocket</category>
+      <category>science</category>
+      <category>space</category>
+      <category>transportation</category>
+      <dc:creator><![CDATA[Andrew Tarantola]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 12:22:00 -0500</pubDate>
+      <dc:identifier>21|21874527</dc:identifier>
+    </item>
+    <item>
+      <title><![CDATA[Trump's new immigration ban restricts residents of six countries]]></title>
+      <link>https://www.engadget.com/2017/03/06/trumps-new-immigration-ban-restricts-residents-of-six-countries/</link>
+      <guid isPermaLink="false">
+        https://www.engadget.com/2017/03/06/trumps-new-immigration-ban-restricts-residents-of-six-countries/
+      </guid>
+      <comments>
+        https://www.engadget.com/2017/03/06/trumps-new-immigration-ban-restricts-residents-of-six-countries/#comments
+      </comments>
+      <description>
+        <![CDATA[
+						<img src="https://s.aolcdn.com/hss/storage/midas/66667b9824fd715622aefd93aa3f6d13/205017056/RTS10VPX-ed.jpg" />President Donald Trump has signed another executive order limiting immigration to the US, this time temporarily banning citizens from six predominantly Muslim nations. The biggest difference between this order and the one issued in late January are t...
+				]]>
+      </description>
+      <category>culture</category>
+      <category>donaldtrump</category>
+      <category>immigration</category>
+      <category>immigrationban</category>
+      <category>immigrationorder</category>
+      <category>politics</category>
+      <category>travelban</category>
+      <dc:creator><![CDATA[Nathan Ingraham]]></dc:creator>
+      <pubDate>Mon, 06 Mar 2017 12:00:00 -0500</pubDate>
+      <dc:identifier>21|21874505</dc:identifier>
+    </item>
+  </channel>
+</rss>

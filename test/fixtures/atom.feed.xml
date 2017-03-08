@@ -1,25 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-	<title>The Verge - All Posts</title>
-	<icon>https://cdn1.vox-cdn.com/community_logos/34086/verge-fv.png</icon>
-	<updated>2017-02-20T17:53:19-05:00</updated>
-	<id>http://www.theverge.com/rss/full.xml</id>
-	<link type="text/html" href="http://www.theverge.com/" rel="alternate"/>
-	<entry>
-		<published>2017-02-20T17:53:19-05:00</published>
-		<updated>2017-02-20T17:53:19-05:00</updated>
-		<title>Do we need a wearable voice recorder to take notes for us?</title>
-		<content type="html">
-			&lt;img alt=""src="https://cdn0.vox-cdn.com"/&gt;
-			&lt;p id="PV747w"&gt;The Verge
-			&lt;/p&gt;
+  <title>The Verge - All Posts</title>
+  <icon>https://cdn3.vox-cdn.com/community_logos/34086/verge-fv.png</icon>
+  <updated>2017-03-06T21:55:20-05:00</updated>
+  <id>http://www.theverge.com/rss/full.xml</id>
+  <link type="text/html" href="http://www.theverge.com/" rel="alternate"/>
+  <entry>
+    <published>2017-03-06T21:55:20-05:00</published>
+    <updated>2017-03-06T21:55:20-05:00</updated>
+    <title>This Lamborghini is the fastest production car ever to lap the Nürburgring</title>
+    <content type="html">
+      &lt;img alt=""
+      src="https://cdn0.vox-cdn.com/thumbor/38QtYlvQYSZeOCotESIKrU4fBX0=/493x0:4824x2887/1310x873/cdn0.vox-cdn.com/uploads/chorus_image/image/53570647/Huracan_Performante_High__5_.0.jpg"
+      /&gt;
 
-		</content>
-		<link rel="alternate" type="text/html"
-			  href="http://www.theverge.com/circuitbreaker/2017/2/20/14673906/senstone-kickstarter-campaign-release"/>
-		<id>http://www.theverge.com/circuitbreaker/2017/2/20/14673906/senstone-kickstarter-campaign-release</id>
-		<author>
-			<name>Ashley Carman</name>
-		</author>
-	</entry>
+
+      &lt;p id="5saxyq"&gt;The Lamborghini Huracan is a fantastic supercar. But, like many great things, it can be made
+      better — and that’s what the engineers at Lamborghini have done with the new &lt;a
+      href="http://media.lamborghini.com/English/LATEST-NEWS/focused-on-performance--the-new-lamborghini-hurac-n-performante/s/7c90eab4-6acb-4d06-b4f6-4ace77265b49"&gt;Huracan
+      Performante&lt;/a&gt;.&lt;/p&gt;
+      &lt;p id="ma7zjJ"&gt;The Performante is 40 kilograms lighter than a standard Huracan coupe. It’s also more
+      powerful, producing 640 horsepower and 442 pound-feet of torque from its 5.2-liter V10 — up from 610 hp and 413
+      pound-feet in the standard Huracan. Back in October, the Performante set a production car lap record of 6:52.01
+      around the Nürburgring’s Nordschleife. 0 to 62 mph happens in 2.9 seconds. Top speed is nearly 202 mph.&lt;/p&gt;
+      &lt;div class="c-float-right"&gt;&lt;aside id="wgZ91C"&gt;&lt;q&gt;for $275,000, you can take corners really,
+      really fast&lt;/q&gt;&lt;/aside&gt;&lt;/div&gt;
+      &lt;p id="XS0Kxe"&gt;The Performante has something called Aerodinamica Lamborghini Attiva (ALA). It’s an...&lt;/p&gt;
+      &lt;p&gt;
+      &lt;a
+      href="http://www.theverge.com/2017/3/6/14837790/lamborghini-huracan-performante-unveil-geneva-motor-show-2017"&gt;Continue
+      reading&amp;hellip;&lt;/a&gt;
+      &lt;/p&gt;
+
+    </content>
+    <link rel="alternate" type="text/html"
+          href="http://www.theverge.com/2017/3/6/14837790/lamborghini-huracan-performante-unveil-geneva-motor-show-2017"/>
+    <id>http://www.theverge.com/2017/3/6/14837790/lamborghini-huracan-performante-unveil-geneva-motor-show-2017</id>
+    <author>
+      <name>Jordan Golson</name>
+    </author>
+  </entry>
+  <entry>
+    <published>2017-03-06T21:55:20-05:00</published>
+    <updated>2017-03-06T21:55:20-05:00</updated>
+    <title>This is a test</title>
+    <content type="html">
+      &lt;img alt=""
+      src="https://test.com/image.jpg"
+      /&gt;
+
+
+      &lt;p id="5saxyq"&gt;The Lamborghini Huracan is a fantastic supercar. But, like many great things, it can be made
+      better — and that’s what the engineers at Lamborghini have done with the new &lt;a
+      href="http://media.lamborghini.com/English/LATEST-NEWS/focused-on-performance--the-new-lamborghini-hurac-n-performante/s/7c90eab4-6acb-4d06-b4f6-4ace77265b49"&gt;Huracan
+      Performante&lt;/a&gt;.&lt;/p&gt;
+      &lt;p id="ma7zjJ"&gt;The Performante is 40 kilograms lighter than a standard Huracan coupe. It’s also more
+      powerful, producing 640 horsepower and 442 pound-feet of torque from its 5.2-liter V10 — up from 610 hp and 413
+      pound-feet in the standard Huracan. Back in October, the Performante set a production car lap record of 6:52.01
+      around the Nürburgring’s Nordschleife. 0 to 62 mph happens in 2.9 seconds. Top speed is nearly 202 mph.&lt;/p&gt;
+      &lt;div class="c-float-right"&gt;&lt;aside id="wgZ91C"&gt;&lt;q&gt;for $275,000, you can take corners really,
+      really fast&lt;/q&gt;&lt;/aside&gt;&lt;/div&gt;
+      &lt;p id="XS0Kxe"&gt;The Performante has something called Aerodinamica Lamborghini Attiva (ALA). It’s an...&lt;/p&gt;
+      &lt;p&gt;
+      &lt;a
+      href="http://www.theverge.com/2017/3/6/14837790/lamborghini-huracan-performante-unveil-geneva-motor-show-2017"&gt;Continue
+      reading&amp;hellip;&lt;/a&gt;
+      &lt;/p&gt;
+
+    </content>
+    <link rel="alternate" type="text/html"
+          href="http://www.test.com/hello-test"/>
+    <id>http://www.theverge.com/2017/3/6/14837790/lamborghini-huracan-performante-unveil-geneva-motor-show-2017</id>
+    <author>
+      <name>Jordan Golson</name>
+    </author>
+  </entry>
 </feed>
