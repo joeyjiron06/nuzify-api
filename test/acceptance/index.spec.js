@@ -1,7 +1,7 @@
 const chai = require('chai');
 const server = require('../../index');
 const chaiHttp = require('chai-http');
-const fixtureServer = require('../lib/fixture-server');
+const mockServer = require('../lib/mock-server');
 
 const expect = chai.expect;
 
@@ -9,10 +9,10 @@ chai.use(chaiHttp);
 
 describe('Server', () => {
   before(() => {
-    fixtureServer.init(6000);
+    mockServer.init(6000);
   });
   after(() => {
-    fixtureServer.destroy();
+    mockServer.destroy();
   });
 
 
@@ -55,9 +55,9 @@ describe('Server', () => {
     });
 
     it('should return an array of articles when given a url', (done) => {
-      let fixtureUrl = 'http://localhost:6000/atom.feed.xml';
+      let mockExternalUrl =  mockServer.getUrl('/atom.feed.xml');
       chai.request(server)
-        .get(`/v1/feed?url=${encodeURIComponent(fixtureUrl)}`)
+        .get(`/v1/feed?url=${encodeURIComponent(mockExternalUrl)}`)
         .end((err, res) => {
           expect(res.status).to.equal(200);
 
@@ -78,9 +78,9 @@ describe('Server', () => {
     });
 
     it('should return CORS headers', (done) => {
-      let fixtureUrl = 'http://localhost:6000/atom.feed.xml';
+      let mockExternalUrl = mockServer.getUrl('/atom.feed.xml');
       chai.request(server)
-        .get(`/v1/feed?url=${encodeURIComponent(fixtureUrl)}`)
+        .get(`/v1/feed?url=${encodeURIComponent(mockExternalUrl)}`)
         .end((err, res) => {
           let headers = res.headers;
           expect(headers['access-control-allow-origin']).to.equal('*');

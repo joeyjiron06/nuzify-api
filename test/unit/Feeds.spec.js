@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const fs = require('fs');
 const Feeds = require('../../src/Feeds');
-const fixtureServer = require('../lib/fixture-server');
+const fixtureServer = require('../lib/mock-server');
 
 const PORT = 4000;
 

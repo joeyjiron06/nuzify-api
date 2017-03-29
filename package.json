@@ -1,5 +1,5 @@
 {
-  "name": "munch-server",
+  "name": "munch-api",
   "version": "1.0.0-alpha0.1",
   "description": "A REST service that parses RSS feeds and returns JSON data",
   "main": "index.js",
