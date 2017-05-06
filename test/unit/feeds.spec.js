@@ -1,9 +1,7 @@
 const expect = require('chai').expect;
 const fs = require('fs');
 const Feeds = require('../../src/Feeds');
-const fixtureServer = require('../lib/mock-server');
-
-const PORT = 4000;
+const mockServer = require('../lib/mock-server');
 
 describe('Feeds', () => {
 
@@ -206,19 +204,19 @@ describe('Feeds', () => {
   describe('fetch', () => {
 
     before(() => {
-      fixtureServer.init(PORT);
+      mockServer.init(4000);
     });
 
     after(() => {
-      fixtureServer.destroy();
+      mockServer.destroy();
     });
 
     it('should return a promise', () => {
       expect(Feeds.fetch('http://hi.com')).to.be.an.instanceof(Promise);
     });
 
-    it('should return parsed feed item when passed an RSS url', (done) => {
-      Feeds.fetch(`http://localhost:${PORT}/rss.feed.xml`)
+    it('should return parsed feed item when passed an RSS url', () => {
+      return Feeds.fetch(mockServer.getUrl('/rss.feed.xml'))
         .then((feed) => {
           expect(feed).to.be.an.object;
           expect(feed.source).to.deep.equal({
@@ -231,14 +229,12 @@ describe('Feeds', () => {
             img_url : 'https://s.aolcdn.com/dims-shared/dims3/GLOB/crop/1600x1049+0+0/resize/1600x1049!/format/jpg/quality/85/https://s.aolcdn.com/hss/storage/midas/9b8dc9fed589c7cd0a90dd138d485d31/204974161/Nintendo+Switch+preview+gallery+11.jpg',
             link : 'https://www.engadget.com/2017/03/07/how-to-stop-the-nintendo-switchs-joy-con-from-losing-sync/',
           })
-        })
-        .then(done)
-        .catch(done);
+        });
     });
 
 
-    it('should return parsed feed item when passed an ATOM url', (done) => {
-      Feeds.fetch(`http://localhost:${PORT}/atom.feed.xml`)
+    it('should return parsed feed item when passed an ATOM url', () => {
+      return Feeds.fetch(mockServer.getUrl('/atom.feed.xml'))
         .then((feed) => {
           expect(feed).to.be.an.object;
           expect(feed.source).to.deep.equal({
@@ -251,26 +247,22 @@ describe('Feeds', () => {
             img_url : 'https://cdn0.vox-cdn.com/thumbor/38QtYlvQYSZeOCotESIKrU4fBX0=/493x0:4824x2887/1310x873/cdn0.vox-cdn.com/uploads/chorus_image/image/53570647/Huracan_Performante_High__5_.0.jpg',
             link : 'http://www.theverge.com/2017/3/6/14837790/lamborghini-huracan-performante-unveil-geneva-motor-show-2017'
           })
-        })
-        .then(done)
-        .catch(done);
+        });
     });
 
 
-    it('should reject the promise with a parse error when the url is not a valid feed', (done) => {
-      Feeds.fetch(`http://localhost:${PORT}/invalid.feed.xml`)
+    it('should reject the promise with a parse error when the url is not a valid feed', () => {
+      return Feeds.fetch(mockServer.getUrl(`/invalid.feed.xml`))
         .catch((response) => {
           expect(response.error.message).to.equal('parse error');
-        })
-        .then(done)
+        });
     });
 
-    it('should reject the promise with a 404 status code', (done) => {
-      Feeds.fetch(`http://localhost:${PORT}/I_DO_NOT_EXIST`)
+    it('should reject the promise with a 404 status code', () => {
+      return Feeds.fetch(mockServer.getUrl(`/I_DO_NOT_EXIST`))
         .catch((response) => {
           expect(response.statusCode).to.equal(404);
-        })
-        .then(done)
+        });
     });
   });
 });

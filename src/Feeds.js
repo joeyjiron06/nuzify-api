@@ -1,5 +1,5 @@
 const parser = require('xml2json');
-const http = require('./http');
+const http = require('./utils/http');
 
 const PARSER_OPTIONS = {
   object:true,

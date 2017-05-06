@@ -35,7 +35,7 @@ class Http {
   /**
    * @see Http.fetch
    */
-  static delete(url, options) {
+  static del(url, options) {
     return Http.fetch(url, Object.assign({}, options, {method:'DELETE'}));
   }
 
@@ -55,7 +55,7 @@ class Http {
 
         response.on('data', function (chunk) {
           response.chunks = response.chunks || [];
-          response.chunks[response.chunks.length] = chunk;
+          response.chunks.push(chunk);
         });
 
         response.on('end', () => {
