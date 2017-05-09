@@ -100,4 +100,88 @@ describe('User API', () => {
         })
     });
   });
+
+  describe('POST /user/reset-password', () => {
+    // create a fake mail server
+    let maildevServer;
+
+    before((done) => {
+      maildevServer = new MailDev({
+        ip: '127.0.0.1',
+        port : config.nodemailer.port
+      });
+      maildevServer.listen(() => done());
+    });
+
+    afterEach(() => {
+      maildevServer.removeAllListeners();
+    });
+
+    after((done) => {
+      maildevServer.end(() => done());
+    });
+
+
+    it('should return 400 when no email is specified and an error message', () => {
+      return MunchAPI.resetPassword(null)
+        .catch((res) => {
+          expect(res).to.have.status(400);
+          expect(res.body.errors).to.deep.equal({
+            email : 'A valid email is required'
+          });
+        });
+    });
+
+    it('should return 400 when invalid email is sent and error message', () => {
+      return MunchAPI.resetPassword('thisIsNotAValidEmailAddress')
+        .catch((res) => {
+          expect(res).to.have.status(400);
+          expect(res.body.errors).to.deep.equal({
+            email : 'A valid email is required'
+          });
+        });
+    });
+
+    it('should return 400 when user is not found with that email and an error message', () => {
+      return MunchAPI.resetPassword('joeyjiron06@gmail.com')
+        .catch((res) => {
+          expect(res).to.have.status(400);
+          expect(res.body.errors).to.deep.equal({
+            user : 'User not found'
+          });
+        });
+    });
+
+    it('should return 200 when a valid email is given', () => {
+      return MunchAPI.postUser({email:'test@test.com', password:'password'})
+        .then(() => MunchAPI.resetPassword('test@test.com'))
+        .then((res) => {
+          expect(res).to.have.status(200);
+        });
+    });
+
+    it('should return a valid token that can be used for /me/update-password/:token', () => {
+      return MunchAPI.postUser({email:'test@test.com', password:'password'})
+        .then(() => MunchAPI.resetPassword('test@test.com'))
+        .then((res) => {
+          return MunchAPI.updateMyPasswordWithToken('newPassword', res.body.token);
+        })
+        .then((res) => {
+          expect(res).to.have.status(200);
+        });
+    });
+
+    it('should send an actual email with a token', (done) => {
+      // wait for mail server to receive a new email
+      maildevServer.on('new', email => {
+        expect(email, 'email exists').to.not.be.empty;
+        expect(email.headers.from, 'should be from joey jiron').to.include('Joey Jiron');
+        expect(email.headers.to, 'should be to the user').to.equal('test@test.com');
+        expect(email.html, 'should have a body that contains').to.not.be.empty;
+        done();
+      });
+      MunchAPI.postUser({email:'test@test.com', password:'password'})
+        .then(() => MunchAPI.resetPassword('test@test.com'))
+    });
+  });
 });

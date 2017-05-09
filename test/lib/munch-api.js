@@ -53,14 +53,17 @@ class MunchAPI {
     return MunchAPI.post('/v1/user/reset-password', {email});
   }
 
-  static updateMyPassword(oldPassword, newPassword, token, resetPasswordToken) {
+  static updateMyPassword(oldPassword, newPassword, token) {
     return MunchAPI.fetch('/v1/me/update-password', 'POST', {
       old_password: oldPassword,
       new_password: newPassword,
-      reset_password_token: resetPasswordToken
     },
       {cookie:`munchtoken=${token}`}
     );
+  }
+
+  static updateMyPasswordWithToken(newPassword, token) {
+    return MunchAPI.fetch(`/v1/me/update-password/${token}`, 'POST', {new_password: newPassword});
   }
 
   static getMe(token) {

@@ -53,6 +53,10 @@ app.route('/v1/me')
 app.route('/v1/me/update-password')
   .post(Auth.verifyUser, Me.updatePassword);
 
+app.route('/v1/me/update-password/:token')
+  .post(Auth.verifyResetPasswordToken, Me.updatePasswordWithToken);
+
+
 app.route('/v1/me/feeds')
   .get(Auth.verifyUser, Me.getFeeds)
   .put(Auth.verifyUser, Me.addFeed)

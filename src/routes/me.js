@@ -123,30 +123,17 @@ exports.deleteMe = function(req, res) {
  * @param {Response} res
  */
 exports.updatePassword = function(req, res) {
-
-  let {
-    old_password,
-    new_password,
-    reset_password_token } = req.body;
-
+  let { old_password, new_password } = req.body;
   let { user } = req;
 
-  let verify;
-
-  if (reset_password_token) {
-    let user = jwt.decode(reset_password_token);
-    verify = User.findUser({id:user.id});
-  } else {
-    verify = user.comparePassword(old_password).then((isValidPassword) => {
+  user.comparePassword(old_password)
+    .then((isValidPassword) => {
       if (!isValidPassword) {
         throw User.ERROR.INVALID_PASSWORD;
       }
 
       return user;
-    });
-  }
-
-  verify
+    })
     .then((user) => {
       user.password = new_password;
       return user.save();
@@ -162,12 +149,41 @@ exports.updatePassword = function(req, res) {
 
       if (err === User.ERROR.INVALID_PASSWORD) {
         errors.old_password = ERROR_MESSAGES.INVALID_OLD_PASSWORD;
-      } else if (err === User.ERROR.USER_NOT_FOUND) {
-        errors.id = ERROR_MESSAGES.USER_NOT_EXISTS;
       } else {
         errors.new_password = ERROR_MESSAGES.INVALID_PASSWORD;
       }
 
       res.status(400).json({errors});
     });
+};
+
+/**
+ * POST /me/reset-password/:token
+ * Send an email to the user with an email link to reset password
+ * @param {Request} req
+ * @param {Response} res
+ */
+exports.updatePasswordWithToken = function(req, res) {
+  let { new_password } = req.body;
+  let { user } = req;
+
+  user.password = new_password;
+  user.save()
+  .then((user) => {
+    res.status(200).json({
+      id: user._id,
+      email: user.email
+    });
+  })
+  .catch((err) => {
+    let errors = {};
+
+    if (err === User.ERROR.INVALID_PASSWORD) {
+      errors.old_password = ERROR_MESSAGES.INVALID_OLD_PASSWORD;
+    } else {
+      errors.new_password = ERROR_MESSAGES.INVALID_PASSWORD;
+    }
+
+    res.status(400).json({errors});
+  });
 };

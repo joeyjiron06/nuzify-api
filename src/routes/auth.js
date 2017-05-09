@@ -60,3 +60,26 @@ exports.verifyUser = function(req, res, next) {
       }
     });
 };
+
+/**
+ * Verify that the token is a valid token
+ * @param req
+ * @param res
+ * @param next
+ */
+exports.verifyResetPasswordToken  = function(req, res, next) {
+  let resetToken = req.params.token;
+
+  let user = jwt.decode(resetToken) || {};
+
+  User.findById(user.id)
+    .then((user) => {
+      if (user) {
+        req.user = user;
+        next();
+      } else {
+        res.status(401).json({});
+        next(new Error('no user found'));
+      }
+    });
+};
