@@ -18,6 +18,7 @@ app.use(cors());// add cors headers to all requests
 app.use(cookieParser());
 app.use(bodyParser.json());
 
+//  -----  FEEDS -----  //
 app.route('/v1/feeds')
   .put(Feed.addFeed);
 
@@ -28,23 +29,29 @@ app.route('/v1/feeds/:id/articles')
   .get(Feed.getArticles);
 
 
+//  -----  USER -----  //
 app.route('/v1/user')
-  .post(User.postUser)
-  .get(User.getUser)
-  .delete(Auth.verifyUser, User.deleteUser);
-
-app.route('/v1/user/update/password')
-  .post(User.updatePassword);
+  .post(User.postUser);
 
 app.route('/v1/user/reset-password')
   .post(User.resetPassword);
 
-app.route('/v1/user/decode-email')
+app.route('/v1/user/verify-email')
   .post(User.verifyEmail);
 
+
+//  -----  AUTH -----  //
 app.route('/v1/authenticate')
   .post(Auth.postAuthenticate);
 
+
+//  -----  ME -----  //
+app.route('/v1/me')
+  .get(Auth.verifyUser, Me.getMe)
+  .delete(Auth.verifyUser, Me.deleteMe);
+
+app.route('/v1/me/update-password')
+  .post(Auth.verifyUser, Me.updatePassword);
 
 app.route('/v1/me/feeds')
   .get(Auth.verifyUser, Me.getFeeds)

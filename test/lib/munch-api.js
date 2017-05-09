@@ -45,30 +45,31 @@ class MunchAPI {
     return MunchAPI.post('/v1/user', user);
   }
 
-  static deleteUser(token) {
-    let headers = token ? {cookie:`munchtoken=${token}`} : null;
-    return MunchAPI.del('/v1/user', {}, headers);
-  }
-
-  static getUser(id) {
-    return MunchAPI.get('/v1/user', {id});
-  }
-
   static verifyEmail(email) {
-    return MunchAPI.post('/v1/user/decode-email', {email});
+    return MunchAPI.post('/v1/user/verify-email', {email});
   }
 
   static resetPassword(email) {
     return MunchAPI.post('/v1/user/reset-password', {email});
   }
 
-  static updatePassword(oldPassword, newPassword, id, resetPasswordToken) {
-    return MunchAPI.post('/v1/user/update/password', {
-      id: id,
+  static updateMyPassword(oldPassword, newPassword, token, resetPasswordToken) {
+    return MunchAPI.fetch('/v1/me/update-password', 'POST', {
       old_password: oldPassword,
       new_password: newPassword,
       reset_password_token: resetPasswordToken
-    });
+    },
+      {cookie:`munchtoken=${token}`}
+    );
+  }
+
+  static getMe(token) {
+    return MunchAPI.fetch('/v1/me', 'GET', null, {cookie:`munchtoken=${token}`});
+  }
+
+  static deleteMe(token) {
+    let headers = token ? {cookie:`munchtoken=${token}`} : null;
+    return MunchAPI.del('/v1/me', {}, headers);
   }
 
   static getMyFeeds(munchtoken) {
