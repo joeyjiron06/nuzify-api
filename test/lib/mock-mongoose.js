@@ -63,6 +63,8 @@ exports.initialize = function() {
     '--storageEngine', 'ephemeralForTest',
     '--dbpath', tmpDir,
   ]);
+  // FOR OFFLINE mode
+  // mongod.mongoBin.mongoDBPrebuilt.binPath = '/Users/jjiron/.mongodb-prebuilt/mongodb-download/a811facba94753a2eba574f446561b7e/mongodb-macOS-x86_64-3.5.5-13-g00ee4f5/bin';
 
   return mongod.run();
 };

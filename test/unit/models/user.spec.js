@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const mongoose = require('mongoose');
-const MockMongoose = require('../lib/mock-mongoose');
-const User = require('../../src/models/user');
+const MockMongoose = require('../../lib/mock-mongoose');
+const User = require('../../../src/models/user');
 
 /**
  * User model Tests
@@ -110,7 +110,6 @@ describe('User Model', () => {
         });
     });
   });
-
 
   describe('comparePassword', () => {
     it('should return true if password is correct', () => {

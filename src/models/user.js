@@ -22,6 +22,17 @@ const UserSchema = new Schema({
     required: true,
     minlength: [8, 'Your password must be at least {MINLENGTH} characters']
   },
+
+  feeds : {
+    type : [{
+      type : Schema.Types.ObjectId,
+      ref : 'Feed'
+    }],
+    validate: [function(feeds) {
+      return feeds.length < 100;
+    }, '{PATH} exceeds the limit of 100']
+
+  }
 });
 
 UserSchema.pre('save', function(next) {

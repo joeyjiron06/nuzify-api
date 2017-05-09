@@ -1,5 +1,6 @@
 const chai = require('chai');
 const server = require('../../index');
+const parseCookie = require('./parse-cookie');
 
 class MunchAPI {
 
@@ -40,7 +41,6 @@ class MunchAPI {
     });
   }
 
-
   static postUser(user) {
     return MunchAPI.post('/v1/user', user);
   }
@@ -71,6 +71,30 @@ class MunchAPI {
     });
   }
 
+  static getMyFeeds(munchtoken) {
+    return MunchAPI.fetch('/v1/me/feeds', 'GET', null, {cookie:`munchtoken=${munchtoken}`});
+  }
+
+  static addFeed(feed) {
+    return MunchAPI.fetch('/v1/feeds', 'PUT', feed);
+  }
+
+  static addToMyFeeds(feedId, munchtoken) {
+    return MunchAPI.fetch('/v1/me/feeds', 'PUT', {id:feedId}, {cookie:`munchtoken=${munchtoken}`});
+  }
+
+  static removeFromMyFeeds(feedId, munchtoken) {
+    return MunchAPI.fetch('/v1/me/feeds', 'DELETE', {id:feedId}, {cookie:`munchtoken=${munchtoken}`});
+  }
+
+  static getFeed(id) {
+    return MunchAPI.fetch(`/v1/feeds/${id}`, 'GET');
+  }
+
+  static getArticles(id) {
+    return MunchAPI.fetch(`/v1/feeds/${id}/articles`, 'GET');
+  }
+
   static authenticate(email, password) {
   return new Promise((resolve, reject) => {
     chai.request(server)
@@ -80,6 +104,7 @@ class MunchAPI {
         if (err) {
           reject(res);
         } else {
+          res.cookie = parseCookie(res.headers['set-cookie'][0]);
           resolve(res);
         }
       });
