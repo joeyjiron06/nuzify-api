@@ -3,8 +3,7 @@ const config = require('../../src/config');
 const MockMongoose = require('../lib/mock-mongoose');
 const MailDev = require('maildev');
 const MunchAPI = require('../lib/munch-api');
-const parseCookie = require('../lib/parse-cookie');
-
+const ERROR_MESSAGES = require('../../src/utils/error-messages');
 
 describe('User API', () => {
   before(() => {
@@ -26,8 +25,7 @@ describe('User API', () => {
         expect(res).to.have.status(400);
         expect(res.body).to.be.an.object;
         expect(res.body.errors).to.be.an.object;
-        expect(res.body.errors.email).to.be.an.object;
-        expect(res.body.errors.email.message).to.not.be.empty;
+        expect(res.body.errors.email).to.equal(ERROR_MESSAGES.INVALID_EMAIL);
         expect(res.body.errors.password).to.be.undefined;
       });
     });
@@ -35,16 +33,16 @@ describe('User API', () => {
     it('should return 400 when no password is supplied', () => {
       return MunchAPI.postUser({email: 'joey'}).catch((res) => {
         expect(res).to.have.status(400);
-        expect(res.body.errors.email.message).to.not.be.empty;
-        expect(res.body.errors.password.message).to.not.be.empty;
+        expect(res.body.errors.email).to.equal(ERROR_MESSAGES.INVALID_EMAIL);
+        expect(res.body.errors.password).to.equal(ERROR_MESSAGES.INVALID_PASSWORD);
       });
     });
 
     it('should return 400 when no body is supplied', () => {
       return MunchAPI.postUser(null).catch((res) => {
         expect(res).to.have.status(400);
-        expect(res.body.errors.email.message).to.not.be.empty;
-        expect(res.body.errors.password.message).to.not.be.empty;
+        expect(res.body.errors.email).to.equal(ERROR_MESSAGES.INVALID_EMAIL);
+        expect(res.body.errors.password).to.equal(ERROR_MESSAGES.INVALID_PASSWORD);
       });
 
     });
@@ -53,7 +51,7 @@ describe('User API', () => {
       let user = {email:'joeyjiron06@gmail.com', password:'testpwd1234'};
       return MunchAPI.postUser(user).then((res) => MunchAPI.postUser(user)).catch((res) => {
         expect(res).to.have.status(409);
-        expect(res.body.errors.email).to.not.be.empty;
+        expect(res.body.errors.email).to.equal(ERROR_MESSAGES.EMAIL_TAKEN);
       });
     });
 
@@ -61,7 +59,7 @@ describe('User API', () => {
       let user = {email:'notTheRightFormat', password:'23asdfasdf'};
       return MunchAPI.postUser(user).catch((res) => {
         expect(res).to.have.status(400);
-        expect(res.body.errors.email).to.not.be.empty;
+        expect(res.body.errors.email).to.equal(ERROR_MESSAGES.INVALID_EMAIL);
       });
     });
 
@@ -70,7 +68,7 @@ describe('User API', () => {
       return MunchAPI.postUser(user).catch((res) => {
         expect(res).to.have.status(400);
         expect(res.body.errors.email).to.be.undefined;
-        expect(res.body.errors.password).to.not.be.empty;
+        expect(res.body.errors.password).to.equal(ERROR_MESSAGES.INVALID_PASSWORD);
       });
     });
 
@@ -113,7 +111,6 @@ describe('User API', () => {
     });
 
     it('should delete a saved user if a valid json webtoken is present in the request', () => {
-      let jsonWebToken;
       let userId;
       return MunchAPI.postUser({email:'joeyj@gmail.com', password:'password'})
         .then((res) => {
@@ -121,9 +118,7 @@ describe('User API', () => {
           return MunchAPI.authenticate('joeyj@gmail.com', 'password');
         })
         .then((res) => {
-          let cookie = parseCookie(res.headers['set-cookie'][0]);
-          jsonWebToken = cookie.munchtoken;
-          return MunchAPI.deleteUser(jsonWebToken);
+          return MunchAPI.deleteUser(res.cookie.munchtoken);
         })
         .then((res) => {
           expect(res).to.have.status(200);
@@ -134,7 +129,7 @@ describe('User API', () => {
         })
         .catch((res) => {
           expect(res).to.have.status(400);
-          expect(res.body.errors.id.message).to.not.be.empty;
+          expect(res.body.errors.id).to.equal(ERROR_MESSAGES.USER_NOT_EXISTS);
         });
     });
   });
@@ -144,14 +139,14 @@ describe('User API', () => {
     it('should return 400 when not id is passed', () => {
       return MunchAPI.getUser(null).catch((res) => {
         expect(res).to.have.status(400);
-        expect(res.body.errors.id.message).to.not.be.empty;
+        expect(res.body.errors.id).to.equal(ERROR_MESSAGES.USER_NOT_EXISTS);
       });
     });
 
     it('should return 400 when no user found with id', () => {
       return MunchAPI.getUser('12fakeid').catch((res) => {
         expect(res).to.have.status(400);
-        expect(res.body.errors.id.message).to.not.be.empty;
+        expect(res.body.errors.id).to.equal(ERROR_MESSAGES.USER_NOT_EXISTS);
       });
     });
 
@@ -183,7 +178,7 @@ describe('User API', () => {
         })
         .catch((res) => {
           expect(res).to.have.status(400);
-          expect(res.body.errors.old_password.message).to.not.be.empty;
+          expect(res.body.errors.old_password).to.equal(ERROR_MESSAGES.INVALID_OLD_PASSWORD);
           expect(res.body.errors.new_password).to.be.undefined;
         });
     });
@@ -195,7 +190,7 @@ describe('User API', () => {
         })
         .catch((res) => {
           expect(res).to.have.status(400);
-          expect(res.body.errors.new_password.message).to.not.be.empty;
+          expect(res.body.errors.new_password).to.equal(ERROR_MESSAGES.INVALID_PASSWORD);
           expect(res.body.errors.old_password).to.be.undefined;
         });
     });
@@ -204,7 +199,7 @@ describe('User API', () => {
       return MunchAPI.updatePassword('password', 'newPassword', 'bogusIdThatDoesntExist')
         .catch((res) => {
           expect(res).to.have.status(400);
-          expect(res.body.errors.id.message).to.not.be.empty;
+          expect(res.body.errors.id).to.equal(ERROR_MESSAGES.USER_NOT_EXISTS);
           expect(res.body.errors.new_password).to.be.undefined;
           expect(res.body.errors.old_password).to.be.undefined;
         });

@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const Emailer = require('../utils/emailer');
 const jwt = require('../utils/jwt');
+const ERROR_MESSAGES = require('../utils/error-messages');
 
 /**
  * POST /user
@@ -20,20 +21,24 @@ exports.postUser = function(req, res) {
         email
       })
     })
-    .catch((error) => {
-      if (error.code === 11000) {
-        let errors = { email : { message : `Email '${email}' is already taken`} };
-        res.status(409).json({errors});
+    .catch((err) => {
+      let errors = {};
+      let status = 400;
+
+      if (err.code === 11000) {
+        status = 409;
+        errors.email = ERROR_MESSAGES.EMAIL_TAKEN;
       } else {
-        let { errors } = error;
+        if (err.errors.email) {
+          errors.email = ERROR_MESSAGES.INVALID_EMAIL;
+        }
 
-        Object.keys(errors).forEach((key) => {
-          let message = errors[key].message;
-          errors[key] = { message };
-        });
-
-        res.status(400).json({errors});
+        if (err.errors.password) {
+          errors.password = ERROR_MESSAGES.INVALID_PASSWORD;
+        }
       }
+
+      res.status(status).json({errors});
     });
 };
 
@@ -52,7 +57,9 @@ exports.deleteUser = function(req, res) {
     })
     .catch(() => {
       res.status(400).json({
-        errors : {id: {message:'A valid id is required. Please send a json like follows {"id":"myUserId"}'}}
+        errors : {
+          id: ERROR_MESSAGES.INVALID_ID
+        }
       });
     });
 };
@@ -76,7 +83,7 @@ exports.getUser = function(req, res) {
     .catch(() => {
       res.status(400).json({
         errors : {
-          id : {message : 'User not found'}
+          id : ERROR_MESSAGES.USER_NOT_EXISTS
         }
       });
     });
@@ -119,11 +126,11 @@ exports.updatePassword = function(req, res) {
       let errors = {};
 
       if (err === User.ERROR.INVALID_PASSWORD) {
-        errors.old_password = {message : 'Your new password is invalid'};
+        errors.old_password = ERROR_MESSAGES.INVALID_OLD_PASSWORD;
       } else if (err === User.ERROR.USER_NOT_FOUND) {
-        errors.id = {message : 'User not found'};
+        errors.id = ERROR_MESSAGES.USER_NOT_EXISTS;
       } else {
-        errors.new_password = {message : 'Invalid new password'};
+        errors.new_password = ERROR_MESSAGES.INVALID_PASSWORD;
       }
 
       res.status(400).json({errors});

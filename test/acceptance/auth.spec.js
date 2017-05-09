@@ -3,7 +3,7 @@ const MockMongoose = require('../lib/mock-mongoose');
 const jwt = require('jsonwebtoken');
 const config = require('../../src/config');
 const MunchAPI = require('../lib/munch-api');
-const parseCookie = require('../lib/parse-cookie');
+const ERROR_MESSAGES = require('../../src/utils/error-messages');
 
 describe('Auth API', () => {
   before(() => {
@@ -26,7 +26,7 @@ describe('Auth API', () => {
         expect(res).to.have.status(400);
         expect(res.body).to.deep.equal({
           errors : {
-            user : 'User does not exist'
+            user : ERROR_MESSAGES.USER_NOT_EXISTS
           }
         });
       });
@@ -37,7 +37,7 @@ describe('Auth API', () => {
         expect(res).to.have.status(400);
         expect(res.body).to.deep.equal({
           errors : {
-            email : 'You must supply a valid email'
+            email : ERROR_MESSAGES.INVALID_EMAIL
           }
         });
       });
@@ -50,7 +50,7 @@ describe('Auth API', () => {
           expect(res).to.have.status(400);
           expect(res.body).to.deep.equal({
             errors : {
-              password : 'Invalid password'
+              password : ERROR_MESSAGES.INVALID_PASSWORD
             }
           });
         });
@@ -76,7 +76,7 @@ describe('Auth API', () => {
       return MunchAPI.postUser({email:'joeyjiron06@gmail.com', password:'mylittlesecret'})
         .then((res) => MunchAPI.authenticate('joeyjiron06@gmail.com', 'mylittlesecret'))
         .then((res) => {
-          let cookie = parseCookie(res.headers['set-cookie'][0]);
+          let cookie = res.cookie;
           expect(cookie.munchtoken, 'should have munchtoken cookie').to.not.be.empty;
           expect(cookie.munchtoken, 'should be a valid json webtoken').to.satisfy(value => jwt.decode(value, config.jwtSecret));
         });

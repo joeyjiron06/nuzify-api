@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const jwt = require('../utils/jwt');
+const ERROR_MESSAGES = require('../utils/error-messages');
 
 /**
  * POST /authenticate
@@ -23,11 +24,11 @@ exports.postAuthenticate = function(req, res) {
       let errors = {};
 
       if (err === User.ERROR.INVALID_EMAIL) {
-        errors.email = 'You must supply a valid email';
+        errors.email = ERROR_MESSAGES.INVALID_EMAIL;
       } else if (err === User.ERROR.USER_NOT_FOUND) {
-        errors.user = 'User does not exist'
+        errors.user = ERROR_MESSAGES.USER_NOT_EXISTS;
       } else if (err === User.ERROR.INVALID_PASSWORD) {
-        errors.password = 'Invalid password';
+        errors.password = ERROR_MESSAGES.INVALID_PASSWORD;
       } else {
         errors.message = 'There was an unknown error authenticating the user';
         console.log('unknown error authing the user', err);
