@@ -14,7 +14,7 @@ exports.getFeeds = function(req, res) {
     .populate('feeds')
     .exec()
     .then((user) => {
-      res.status(200).json(user.feeds);
+      res.send(200, user.feeds);
     });
 };
 
@@ -34,11 +34,11 @@ exports.addFeed = function(req, res) {
       user.feeds.push(feed._id);
       return user.save()
         .then(() => {
-          res.status(200).json(feed);
+          res.send(200, feed);
         });
     })
     .catch(() => {
-      res.status(400).json({
+      res.send(400, {
         errors : {
           id : ERROR_MESSAGES.INVALID_ID
         }
@@ -63,7 +63,7 @@ exports.deleteFeed = function (req, res) {
   });
 
   if (originalLength === user.feeds.length) {
-    res.status(400).json({
+    res.send(400, {
       errors : {
         id : ERROR_MESSAGES.NOT_A_SAVED_FEED_ID
       }
@@ -71,7 +71,7 @@ exports.deleteFeed = function (req, res) {
   } else {
     user.save()
       .then(() => {
-        res.status(200).json({});
+        res.send(200, {});
       });
   }
 
@@ -88,7 +88,7 @@ exports.deleteFeed = function (req, res) {
 exports.getMe = function(req, res) {
   let { user } = req;
 
-  res.status(200).json({
+  res.send(200, {
     id : user._id,
     email : user.email
   });
@@ -105,10 +105,10 @@ exports.deleteMe = function(req, res) {
 
   User.remove({_id:id})
     .then(() => {
-      res.status(200).json({});
+      res.send(200, {});
     })
     .catch(() => {
-      res.status(400).json({
+      res.send(400, {
         errors : {
           id: ERROR_MESSAGES.INVALID_ID
         }
@@ -139,7 +139,7 @@ exports.updatePassword = function(req, res) {
       return user.save();
     })
     .then((user) => {
-      res.status(200).json({
+      res.send(200, {
         id: user._id,
         email: user.email
       });
@@ -153,7 +153,7 @@ exports.updatePassword = function(req, res) {
         errors.new_password = ERROR_MESSAGES.INVALID_PASSWORD;
       }
 
-      res.status(400).json({errors});
+      res.send(400, {errors});
     });
 };
 
@@ -170,7 +170,7 @@ exports.updatePasswordWithToken = function(req, res) {
   user.password = new_password;
   user.save()
   .then((user) => {
-    res.status(200).json({
+    res.send(200, {
       id: user._id,
       email: user.email
     });
@@ -184,6 +184,6 @@ exports.updatePasswordWithToken = function(req, res) {
       errors.new_password = ERROR_MESSAGES.INVALID_PASSWORD;
     }
 
-    res.status(400).json({errors});
+    res.send(400, {errors});
   });
 };

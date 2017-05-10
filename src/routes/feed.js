@@ -16,10 +16,10 @@ exports.getFeed = function(req, res) {
 
   Feed.findById(id)
     .then((feed) => {
-      res.status(200).json(feed.toJSON());
+      res.send(200, feed.toJSON());
     })
     .catch(() => {
-      res.status(400).json({
+      res.send(400, {
         errors : {
           id : ERROR_MESSAGES.INVALID_ID
         }
@@ -40,14 +40,14 @@ exports.addFeed = function(req, res) {
 
   feed.save()
     .then((feed) => {
-      res.status(200).json(feed);
+      res.send(200, feed);
     })
     .catch((err) => {
       // URL IS TAKEN - find it and return it to the client
       if (err.code === 11000) {
         Feed.findOne({url})
           .then((feed) => {
-            res.status(400).json({
+            res.send(400, {
               feed : feed.toJSON(),
               errors : {
                 url : ERROR_MESSAGES.URL_TAKEN
@@ -68,7 +68,7 @@ exports.addFeed = function(req, res) {
           errors.url = ERROR_MESSAGES.INVALID_URL;
         }
 
-        res.status(400).json({errors});
+        res.send(400, {errors});
       }
     });
 };
@@ -96,7 +96,7 @@ exports.getArticles = function(req, res) {
       foundFeed = foundFeed.toJSON();
       foundFeed.articles = feed.items;
 
-      res.status(200).json(foundFeed);
+      res.send(200, foundFeed);
     })
     .catch((err) => {
       let errors = {};
@@ -107,6 +107,6 @@ exports.getArticles = function(req, res) {
         errors.feed = ERROR_MESSAGES.FEED_HTTP_ERROR;
       }
 
-      res.status(400).json({errors});
+      res.send(400, {errors});
     });
 };

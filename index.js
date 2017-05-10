@@ -1,71 +1,53 @@
-const express = require('express');
-const bodyParser = require('body-parser');
 const Feed  = require('./src/routes/feed');
 const User = require('./src/routes/user');
 const Me = require('./src/routes/me');
 const Auth = require('./src/routes/auth');
 const config = require('./src/config');
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
+const restify = require('restify');
+const cookieParser = require('restify-cookies');
 
-const app = express();
-
+const server = restify.createServer({
+  name:'munch',
+  version: '1.0.0'
+});
 
 mongoose.Promise = Promise;
 
-app.use(cors());// add cors headers to all requests
-app.use(cookieParser());
-app.use(bodyParser.json());
+server.use(cookieParser.parse);
+server.use(restify.bodyParser(), (req, res, next) => {
+  req.body = req.body || {};
+  next();
+});
 
-//  -----  FEEDS -----  //
-app.route('/v1/feeds')
-  .put(Feed.addFeed);
-
-app.route('/v1/feeds/:id')
-  .get(Feed.getFeed);
-
-app.route('/v1/feeds/:id/articles')
-  .get(Feed.getArticles);
+// FEEDS
+server.put('/v1/feeds', Feed.addFeed);
+server.get('/v1/feeds/:id', Feed.getFeed);
+server.get('/v1/feeds/:id/articles', Feed.getArticles);
 
 
-//  -----  USER -----  //
-app.route('/v1/user')
-  .post(User.postUser);
-
-app.route('/v1/user/reset-password')
-  .post(User.resetPassword);
-
-app.route('/v1/user/verify-email')
-  .post(User.verifyEmail);
+// USER
+server.post('/v1/user', User.postUser);
+server.post('/v1/user/reset-password', User.resetPassword);
+server.post('/v1/user/verify-email', User.verifyEmail);
 
 
-//  -----  AUTH -----  //
-app.route('/v1/authenticate')
-  .post(Auth.postAuthenticate);
+// AUTH
+server.post('/v1/authenticate', Auth.postAuthenticate);
 
 
-//  -----  ME -----  //
-app.route('/v1/me')
-  .get(Auth.verifyUser, Me.getMe)
-  .delete(Auth.verifyUser, Me.deleteMe);
-
-app.route('/v1/me/update-password')
-  .post(Auth.verifyUser, Me.updatePassword);
-
-app.route('/v1/me/update-password/:token')
-  .post(Auth.verifyResetPasswordToken, Me.updatePasswordWithToken);
-
-
-app.route('/v1/me/feeds')
-  .get(Auth.verifyUser, Me.getFeeds)
-  .put(Auth.verifyUser, Me.addFeed)
-  .delete(Auth.verifyUser, Me.deleteFeed);
-
+// ME
+server.get('/v1/me', Auth.verifyUser, Me.getMe);
+server.del('/v1/me', Auth.verifyUser, Me.deleteMe);
+server.get('/v1/me/feeds', Auth.verifyUser, Me.getFeeds);
+server.put('/v1/me/feeds', Auth.verifyUser, Me.addFeed);
+server.del('/v1/me/feeds', Auth.verifyUser, Me.deleteFeed);
+server.post('/v1/me/update-password', Auth.verifyUser, Me.updatePassword);
+server.post('/v1/me/update-password/:token', Auth.verifyResetPasswordToken, Me.updatePasswordWithToken);
 
 console.log('listening on port', config.port);
 
-app.listen(config.port);
+server.listen(config.port);
 
 
-module.exports = app;
+module.exports = server;

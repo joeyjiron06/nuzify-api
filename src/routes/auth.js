@@ -13,12 +13,11 @@ exports.postAuthenticate = function(req, res) {
 
   User.verifyPassword({email}, password)
     .then((user) => {
-      res.status(200)
-        .cookie('munchtoken', jwt.encode({id:user.id}))
-        .json({
-          id : user.id,
-          email : user.email
-        });
+      res.setCookie('munchtoken', jwt.encode({id:user.id}));
+      res.send({
+        id : user.id,
+        email : user.email
+      });
     })
     .catch((err) => {
       let errors = {};
@@ -34,7 +33,7 @@ exports.postAuthenticate = function(req, res) {
         console.log('unknown error authing the user', err);
       }
 
-      res.status(400).json({errors});
+      res.send(400, {errors});
     });
 };
 
@@ -55,8 +54,8 @@ exports.verifyUser = function(req, res, next) {
         req.user = user;
         next();
       } else {
-        res.status(401).json({});
-        next(new Error('no user found'));
+        res.send(401, {});
+        next(false);
       }
     });
 };
@@ -78,7 +77,7 @@ exports.verifyResetPasswordToken  = function(req, res, next) {
         req.user = user;
         next();
       } else {
-        res.status(401).json({});
+        res.send(401, {});
         next(new Error('no user found'));
       }
     });

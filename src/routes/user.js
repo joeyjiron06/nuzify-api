@@ -16,7 +16,7 @@ exports.postUser = function(req, res) {
 
   user.save()
     .then((user) => {
-      res.status(200).json({
+      res.send(200, {
         id : user._id,
         email
       })
@@ -38,7 +38,7 @@ exports.postUser = function(req, res) {
         }
       }
 
-      res.status(status).json({errors});
+      res.send(status, {errors});
     });
 };
 
@@ -53,13 +53,13 @@ exports.verifyEmail = function(req, res) {
 
   User.findOne({email})
     .then((user) => {
-      res.status(200).json({
+      res.send(200, {
         isEmailAvailable: !user
       });
     })
     .catch((err) => {
       console.log('SHOULD NOT GET HERE in verifyEmail');
-      res.status(200).json({
+      res.send(200, {
         isEmailAvailable:true
       });
     });
@@ -93,7 +93,7 @@ exports.resetPassword = function(req, res) {
       });
 
 
-      res.status(200).json({
+      res.send(200, {
         id : user.id,
         email : user.email,
         token : token,
@@ -109,6 +109,6 @@ exports.resetPassword = function(req, res) {
         errors.email = 'A valid email is required';
       }
 
-      res.status(400).json({errors});
+      res.send(400, {errors});
     });
 };
