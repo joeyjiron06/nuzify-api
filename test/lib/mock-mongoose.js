@@ -29,6 +29,7 @@ function prepareTempStorage() {
  */
 exports.connect = function() {
   return new Promise((resolve, reject) => {
+    mongoose.Promise = Promise;
     mongoose.connect(`mongodb://localhost:${PORT}`);
     mongoose.connection.on('connected', (err) => {
       if (err) { reject(err);}
@@ -63,6 +64,7 @@ exports.initialize = function() {
     '--storageEngine', 'ephemeralForTest',
     '--dbpath', tmpDir,
   ]);
+
   // FOR OFFLINE mode
   // mongod.mongoBin.mongoDBPrebuilt.binPath = '/Users/jjiron/.mongodb-prebuilt/mongodb-download/a811facba94753a2eba574f446561b7e/mongodb-macOS-x86_64-3.5.5-13-g00ee4f5/bin';
 
