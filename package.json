@@ -7,7 +7,7 @@
     "start": "node index.js",
     "test": "mocha test/**/*.spec.js",
     "test-acceptance": "mocha test/acceptance/**.spec.js",
-    "test-coverage": "istanbul cover mocha --report lcovonly -- test/**/*.spec.js && codecov",
+    "test-coverage": "istanbul cover _mocha --report lcovonly -- test/**/*.spec.js && codecov",
     "test-unit": "mocha test/unit/**.spec.js"
   },
   "author": "",
