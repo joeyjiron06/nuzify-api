@@ -1,6 +1,6 @@
 node_modules
 .idea/
 tmp
-.emailpassword.secret
-.jwt.secret
+.vscode
 coverage
+.env

@@ -1,33 +1,20 @@
-const fs = require('fs');
-const {
-  JWT_SECRET,
-  NODE_ENV,
-  PORT
-} = process.env;
+const dotenv = require('dotenv');
+
+// process the .env file which assigns process.env vars.
+dotenv.config();
 
 const config = {
-  jwtSecret : JWT_SECRET || fs.readFileSync('.jwt.secret').toString(),
-  port : PORT || 8080,
-  nodemailer : {}
-};
-
-if (NODE_ENV === 'test') {
-  config.nodemailer = {
-    host: 'localhost',
-    secure: false,
-    ignoreTLS: true,
-    port: 1025
-  };
-} else {
-  config.nodemailer = {
-    service: 'gmail',
-    host: 'smtp.gmail.com',
+  jwtSecret : process.env.JWT_SECRET,
+  port : parseInt(process.env.SERVER_PORT) || 8080,
+  nodemailer : {
+    service: process.env.NODE_MAILER_SERVICE,
+    host: process.env.NODE_MAILER_HOST,
     secure: true,
     auth: {
-      user: 'joeyjiron06@gmail.com',
-      pass: fs.readFileSync('.emailpassword.secret').toString()
+      user: process.env.NODE_MAILER_EMAIL,
+      pass: process.env.NODE_MAILER_EMAIL_PASSWORD
     }
-  };
-}
+  }
+};
 
 module.exports = config;
