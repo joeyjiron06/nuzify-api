@@ -2,18 +2,18 @@ const chai = require('chai');
 const server = require('../../index');
 const parseCookie = require('./parse-cookie');
 
-class MunchAPI {
+class NuzifyAPI {
 
   static get(url, data) {
-    return MunchAPI.fetch(url, 'GET', data);
+    return NuzifyAPI.fetch(url, 'GET', data);
   }
 
   static post(url, data) {
-    return MunchAPI.fetch(url, 'POST', data);
+    return NuzifyAPI.fetch(url, 'POST', data);
   }
 
   static del(url, data, headers) {
-    return MunchAPI.fetch(url, 'delete', data, headers);
+    return NuzifyAPI.fetch(url, 'delete', data, headers);
   }
 
   static fetch(url, method, data, headers) {
@@ -42,61 +42,61 @@ class MunchAPI {
   }
 
   static postUser(user) {
-    return MunchAPI.post('/v1/user', user);
+    return NuzifyAPI.post('/v1/user', user);
   }
 
   static verifyEmail(email) {
-    return MunchAPI.post('/v1/user/verify-email', {email});
+    return NuzifyAPI.post('/v1/user/verify-email', {email});
   }
 
   static resetPassword(email) {
-    return MunchAPI.post('/v1/user/reset-password', {email});
+    return NuzifyAPI.post('/v1/user/reset-password', {email});
   }
 
   static updateMyPassword(oldPassword, newPassword, token) {
-    return MunchAPI.fetch('/v1/me/update-password', 'POST', {
+    return NuzifyAPI.fetch('/v1/me/update-password', 'POST', {
       old_password: oldPassword,
       new_password: newPassword,
     },
-      {cookie:`munchtoken=${token}`}
+      {cookie:`nuzifytoken=${token}`}
     );
   }
 
   static updateMyPasswordWithToken(newPassword, token) {
-    return MunchAPI.fetch(`/v1/me/update-password/${token}`, 'POST', {new_password: newPassword});
+    return NuzifyAPI.fetch(`/v1/me/update-password/${token}`, 'POST', {new_password: newPassword});
   }
 
   static getMe(token) {
-    return MunchAPI.fetch('/v1/me', 'GET', null, {cookie:`munchtoken=${token}`});
+    return NuzifyAPI.fetch('/v1/me', 'GET', null, {cookie:`nuzifytoken=${token}`});
   }
 
   static deleteMe(token) {
-    let headers = token ? {cookie:`munchtoken=${token}`} : null;
-    return MunchAPI.del('/v1/me', {}, headers);
+    let headers = token ? {cookie:`nuzifytoken=${token}`} : null;
+    return NuzifyAPI.del('/v1/me', {}, headers);
   }
 
-  static getMyFeeds(munchtoken) {
-    return MunchAPI.fetch('/v1/me/feeds', 'GET', null, {cookie:`munchtoken=${munchtoken}`});
+  static getMyFeeds(nuzifytoken) {
+    return NuzifyAPI.fetch('/v1/me/feeds', 'GET', null, {cookie:`nuzifytoken=${nuzifytoken}`});
   }
 
   static addFeed(feed) {
-    return MunchAPI.fetch('/v1/feeds', 'PUT', feed);
+    return NuzifyAPI.fetch('/v1/feeds', 'PUT', feed);
   }
 
-  static addToMyFeeds(feedId, munchtoken) {
-    return MunchAPI.fetch('/v1/me/feeds', 'PUT', {id:feedId}, {cookie:`munchtoken=${munchtoken}`});
+  static addToMyFeeds(feedId, nuzifytoken) {
+    return NuzifyAPI.fetch('/v1/me/feeds', 'PUT', {id:feedId}, {cookie:`nuzifytoken=${nuzifytoken}`});
   }
 
-  static removeFromMyFeeds(feedId, munchtoken) {
-    return MunchAPI.fetch('/v1/me/feeds', 'DELETE', {id:feedId}, {cookie:`munchtoken=${munchtoken}`});
+  static removeFromMyFeeds(feedId, nuzifytoken) {
+    return NuzifyAPI.fetch('/v1/me/feeds', 'DELETE', {id:feedId}, {cookie:`nuzifytoken=${nuzifytoken}`});
   }
 
   static getFeed(id) {
-    return MunchAPI.fetch(`/v1/feeds/${id}`, 'GET');
+    return NuzifyAPI.fetch(`/v1/feeds/${id}`, 'GET');
   }
 
   static getArticles(id) {
-    return MunchAPI.fetch(`/v1/feeds/${id}/articles`, 'GET');
+    return NuzifyAPI.fetch(`/v1/feeds/${id}/articles`, 'GET');
   }
 
   static authenticate(email, password) {
@@ -116,4 +116,4 @@ class MunchAPI {
 }
 }
 
-module.exports = MunchAPI;
+module.exports = NuzifyAPI;

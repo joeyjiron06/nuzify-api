@@ -2,7 +2,7 @@ const { expect }= require('chai');
 const config = require('../../src/config');
 const MockMongoose = require('../lib/mock-mongoose');
 const MailDev = require('maildev');
-const MunchAPI = require('../lib/munch-api');
+const NuzifyAPI = require('../lib/nuzify-api');
 const ERROR_MESSAGES = require('../../src/utils/error-messages');
 
 describe('User API', () => {
@@ -21,7 +21,7 @@ describe('User API', () => {
   describe('POST /user', () => {
 
     it('should return 400 when no email is supplied', () => {
-      return MunchAPI.postUser({'password': 'hello1234'}).catch((res) => {
+      return NuzifyAPI.postUser({'password': 'hello1234'}).catch((res) => {
         expect(res).to.have.status(400);
         expect(res.body).to.be.an.object;
         expect(res.body.errors).to.be.an.object;
@@ -31,7 +31,7 @@ describe('User API', () => {
     });
 
     it('should return 400 when no password is supplied', () => {
-      return MunchAPI.postUser({email: 'joey'}).catch((res) => {
+      return NuzifyAPI.postUser({email: 'joey'}).catch((res) => {
         expect(res).to.have.status(400);
         expect(res.body.errors.email).to.equal(ERROR_MESSAGES.INVALID_EMAIL);
         expect(res.body.errors.password).to.equal(ERROR_MESSAGES.INVALID_PASSWORD);
@@ -39,7 +39,7 @@ describe('User API', () => {
     });
 
     it('should return 400 when no body is supplied', () => {
-      return MunchAPI.postUser(null).catch((res) => {
+      return NuzifyAPI.postUser(null).catch((res) => {
         expect(res).to.have.status(400);
         expect(res.body.errors.email).to.equal(ERROR_MESSAGES.INVALID_EMAIL);
         expect(res.body.errors.password).to.equal(ERROR_MESSAGES.INVALID_PASSWORD);
@@ -49,7 +49,7 @@ describe('User API', () => {
 
     it('should return 409 and email error message when email is already taken', () => {
       let user = {email:'joeyjiron06@gmail.com', password:'testpwd1234'};
-      return MunchAPI.postUser(user).then((res) => MunchAPI.postUser(user)).catch((res) => {
+      return NuzifyAPI.postUser(user).then((res) => NuzifyAPI.postUser(user)).catch((res) => {
         expect(res).to.have.status(409);
         expect(res.body.errors.email).to.equal(ERROR_MESSAGES.EMAIL_TAKEN);
       });
@@ -57,7 +57,7 @@ describe('User API', () => {
 
     it('should return a 400 and an email error message when email is not in the right formate', () => {
       let user = {email:'notTheRightFormat', password:'23asdfasdf'};
-      return MunchAPI.postUser(user).catch((res) => {
+      return NuzifyAPI.postUser(user).catch((res) => {
         expect(res).to.have.status(400);
         expect(res.body.errors.email).to.equal(ERROR_MESSAGES.INVALID_EMAIL);
       });
@@ -65,7 +65,7 @@ describe('User API', () => {
 
     it('should return a 400 and password error when password is too short', () => {
       let user = {email:'joeyjiron06@gmail.com', password:'122'};
-      return MunchAPI.postUser(user).catch((res) => {
+      return NuzifyAPI.postUser(user).catch((res) => {
         expect(res).to.have.status(400);
         expect(res.body.errors.email).to.be.undefined;
         expect(res.body.errors.password).to.equal(ERROR_MESSAGES.INVALID_PASSWORD);
@@ -74,7 +74,7 @@ describe('User API', () => {
 
     it('should return a 200 and user id when given good data', () => {
       let user = {email:'joeyjiron06@gmail.com', password:'12345678'};
-      return MunchAPI.postUser(user).then((res) => {
+      return NuzifyAPI.postUser(user).then((res) => {
         expect(res).to.have.status(200);
         expect(res.body.id).to.not.be.empty;
         expect(res.body.email).to.equal('joeyjiron06@gmail.com');
@@ -84,7 +84,7 @@ describe('User API', () => {
 
   describe('GET /user/verify-email', () => {
     it('should return true if email is available to use', () => {
-      return MunchAPI.verifyEmail('joeyjiron06@gmail.com')
+      return NuzifyAPI.verifyEmail('joeyjiron06@gmail.com')
         .then((res) => {
           expect(res).to.have.status(200);
           expect(res.body.isEmailAvailable).to.be.true;
@@ -92,8 +92,8 @@ describe('User API', () => {
     });
 
     it('should return false if email is NOT available to use', () => {
-      return MunchAPI.postUser({email:'joeyjiron06@gmail.com', password:'password'})
-        .then(() => MunchAPI.verifyEmail('joeyjiron06@gmail.com'))
+      return NuzifyAPI.postUser({email:'joeyjiron06@gmail.com', password:'password'})
+        .then(() => NuzifyAPI.verifyEmail('joeyjiron06@gmail.com'))
         .then((res) => {
           expect(res).to.have.status(200);
           expect(res.body.isEmailAvailable).to.be.false;
@@ -123,7 +123,7 @@ describe('User API', () => {
 
 
     it('should return 400 when no email is specified and an error message', () => {
-      return MunchAPI.resetPassword(null)
+      return NuzifyAPI.resetPassword(null)
         .catch((res) => {
           expect(res).to.have.status(400);
           expect(res.body.errors).to.deep.equal({
@@ -133,7 +133,7 @@ describe('User API', () => {
     });
 
     it('should return 400 when invalid email is sent and error message', () => {
-      return MunchAPI.resetPassword('thisIsNotAValidEmailAddress')
+      return NuzifyAPI.resetPassword('thisIsNotAValidEmailAddress')
         .catch((res) => {
           expect(res).to.have.status(400);
           expect(res.body.errors).to.deep.equal({
@@ -143,7 +143,7 @@ describe('User API', () => {
     });
 
     it('should return 400 when user is not found with that email and an error message', () => {
-      return MunchAPI.resetPassword('joeyjiron06@gmail.com')
+      return NuzifyAPI.resetPassword('joeyjiron06@gmail.com')
         .catch((res) => {
           expect(res).to.have.status(400);
           expect(res.body.errors).to.deep.equal({
@@ -153,18 +153,18 @@ describe('User API', () => {
     });
 
     it('should return 200 when a valid email is given', () => {
-      return MunchAPI.postUser({email:'test@test.com', password:'password'})
-        .then(() => MunchAPI.resetPassword('test@test.com'))
+      return NuzifyAPI.postUser({email:'test@test.com', password:'password'})
+        .then(() => NuzifyAPI.resetPassword('test@test.com'))
         .then((res) => {
           expect(res).to.have.status(200);
         });
     });
 
     it('should return a valid token that can be used for /me/update-password/:token', () => {
-      return MunchAPI.postUser({email:'test@test.com', password:'password'})
-        .then(() => MunchAPI.resetPassword('test@test.com'))
+      return NuzifyAPI.postUser({email:'test@test.com', password:'password'})
+        .then(() => NuzifyAPI.resetPassword('test@test.com'))
         .then((res) => {
-          return MunchAPI.updateMyPasswordWithToken('newPassword', res.body.token);
+          return NuzifyAPI.updateMyPasswordWithToken('newPassword', res.body.token);
         })
         .then((res) => {
           expect(res).to.have.status(200);
@@ -180,8 +180,8 @@ describe('User API', () => {
         expect(email.html, 'should have a body that contains').to.not.be.empty;
         done();
       });
-      MunchAPI.postUser({email:'test@test.com', password:'password'})
-        .then(() => MunchAPI.resetPassword('test@test.com'))
+      NuzifyAPI.postUser({email:'test@test.com', password:'password'})
+        .then(() => NuzifyAPI.resetPassword('test@test.com'))
     });
   });
 });

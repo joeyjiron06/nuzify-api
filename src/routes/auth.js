@@ -13,7 +13,7 @@ exports.postAuthenticate = function(req, res) {
 
   User.verifyPassword({email}, password)
     .then((user) => {
-      res.setCookie('munchtoken', jwt.encode({id:user.id}));
+      res.setCookie('nuzifytoken', jwt.encode({id:user.id}));
       res.send({
         id : user.id,
         email : user.email
@@ -44,9 +44,9 @@ exports.postAuthenticate = function(req, res) {
  * @param next
  */
 exports.verifyUser = function(req, res, next) {
-  let munchtoken = req.cookies.munchtoken;
+  let nuzifytoken = req.cookies.nuzifytoken;
 
-  let user = jwt.decode(munchtoken) || {};
+  let user = jwt.decode(nuzifytoken) || {};
 
   User.findById(user.id)
     .then((user) => {

@@ -2,7 +2,7 @@ const { expect } = require('chai');
 const MockMongoose = require('../lib/mock-mongoose');
 const jwt = require('jsonwebtoken');
 const config = require('../../src/config');
-const MunchAPI = require('../lib/munch-api');
+const NuzifyAPI = require('../lib/nuzify-api');
 const ERROR_MESSAGES = require('../../src/utils/error-messages');
 
 describe('Auth API', () => {
@@ -22,7 +22,7 @@ describe('Auth API', () => {
 
   describe('POST /authenticate', () => {
     it('should return a 400 user does not exist error if no user exists for that email', () => {
-      return MunchAPI.authenticate('joeshmoe@gmail.com', 'password').catch((res) => {
+      return NuzifyAPI.authenticate('joeshmoe@gmail.com', 'password').catch((res) => {
         expect(res).to.have.status(400);
         expect(res.body).to.deep.equal({
           errors : {
@@ -33,7 +33,7 @@ describe('Auth API', () => {
     });
 
     it('should return 400 when an invalid email is supplied', () => {
-      return MunchAPI.authenticate('notAValidEmail','password').catch((res) => {
+      return NuzifyAPI.authenticate('notAValidEmail','password').catch((res) => {
         expect(res).to.have.status(400);
         expect(res.body).to.deep.equal({
           errors : {
@@ -44,8 +44,8 @@ describe('Auth API', () => {
     });
 
     it('should return 400 if password does not match the password on file', () => {
-      return MunchAPI.postUser({email:'joeyjiron06@gmail.com', password:'mylittlesecret'})
-        .then(() => MunchAPI.authenticate('joeyjiron06@gmail.com', 'thisIsTheWrongPassword'))
+      return NuzifyAPI.postUser({email:'joeyjiron06@gmail.com', password:'mylittlesecret'})
+        .then(() => NuzifyAPI.authenticate('joeyjiron06@gmail.com', 'thisIsTheWrongPassword'))
         .catch((res) => {
           expect(res).to.have.status(400);
           expect(res.body).to.deep.equal({
@@ -58,10 +58,10 @@ describe('Auth API', () => {
 
     it('should return a 200 success and json webtoken if email and password is correct', () => {
       let userId;
-      return MunchAPI.postUser({email:'joeyjiron06@gmail.com', password:'mylittlesecret'})
+      return NuzifyAPI.postUser({email:'joeyjiron06@gmail.com', password:'mylittlesecret'})
         .then((res) => {
           userId = res.body.id;
-          return MunchAPI.authenticate('joeyjiron06@gmail.com', 'mylittlesecret')
+          return NuzifyAPI.authenticate('joeyjiron06@gmail.com', 'mylittlesecret')
         })
         .then((res) => {
           expect(res).to.have.status(200);
@@ -73,12 +73,12 @@ describe('Auth API', () => {
     });
 
     it('should return a json web token when login is susccessful', () => {
-      return MunchAPI.postUser({email:'joeyjiron06@gmail.com', password:'mylittlesecret'})
-        .then((res) => MunchAPI.authenticate('joeyjiron06@gmail.com', 'mylittlesecret'))
+      return NuzifyAPI.postUser({email:'joeyjiron06@gmail.com', password:'mylittlesecret'})
+        .then((res) => NuzifyAPI.authenticate('joeyjiron06@gmail.com', 'mylittlesecret'))
         .then((res) => {
           let cookie = res.cookie;
-          expect(cookie.munchtoken, 'should have munchtoken cookie').to.not.be.empty;
-          expect(cookie.munchtoken, 'should be a valid json webtoken').to.satisfy(value => jwt.decode(value, config.jwtSecret));
+          expect(cookie.nuzifytoken, 'should have nuzifytoken cookie').to.not.be.empty;
+          expect(cookie.nuzifytoken, 'should be a valid json webtoken').to.satisfy(value => jwt.decode(value, config.jwtSecret));
         });
     });
   });

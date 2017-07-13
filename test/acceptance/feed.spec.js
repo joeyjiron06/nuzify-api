@@ -2,7 +2,7 @@ const chai = require('chai');
 const server = require('../../index');
 const chaiHttp = require('chai-http');
 const mockServer = require('../lib/mock-server');
-const MunchAPI = require('../lib/munch-api');
+const NuzifyAPI = require('../lib/nuzify-api');
 const MockMongoose = require('../lib/mock-mongoose');
 const isURL = require('validator/lib/isURL');
 const ERROR_MESSAGES = require('../../src/utils/error-messages');
@@ -22,7 +22,7 @@ describe('Feed API', () => {
 
   describe('GET /feeds/{id}', () => {
     it('should return status 400 and error message if invalid id is given', () => {
-      return MunchAPI.getFeed('badID')
+      return NuzifyAPI.getFeed('badID')
         .then(() => {
           throw new Error('should throw an error');
         })
@@ -33,9 +33,9 @@ describe('Feed API', () => {
     });
 
     it('should return status 200 and a single feed', () => {
-      return MunchAPI.addFeed({title:'The Verge', url : 'https://verge.com/rss.xml'})
+      return NuzifyAPI.addFeed({title:'The Verge', url : 'https://verge.com/rss.xml'})
         .then((res) => {
-          return MunchAPI.getFeed(res.body.id);
+          return NuzifyAPI.getFeed(res.body.id);
         })
         .then((res) => {
           expect(res).to.have.status(200);
@@ -52,7 +52,7 @@ describe('Feed API', () => {
     after(() => mockServer.destroy(4000));
 
     it('should return status 400 when invalid feed id is specified', () => {
-      return MunchAPI.getArticles('badFeedID')
+      return NuzifyAPI.getArticles('badFeedID')
         .then(() => {
           throw new Error('should throw an error');
         })
@@ -64,9 +64,9 @@ describe('Feed API', () => {
 
     it('should return status 400 and error message when it cannot fetch a url for a feed', () => {
       let url = mockServer.getUrl('/somePathThatDoesNotExist');
-      return MunchAPI.addFeed({title:'Dev', url})
+      return NuzifyAPI.addFeed({title:'Dev', url})
         .then((res) => {
-          return MunchAPI.getArticles(res.body.id);
+          return NuzifyAPI.getArticles(res.body.id);
         })
         .then(() => {
           throw new Error('should throw an error');
@@ -80,9 +80,9 @@ describe('Feed API', () => {
 
     it('should return status 200 and a feed with articles', () => {
       let url = mockServer.getUrl('/atom.feed.xml');
-      return MunchAPI.addFeed({title:'Dev', url})
+      return NuzifyAPI.addFeed({title:'Dev', url})
         .then((res) => {
-          return MunchAPI.getArticles(res.body.id);
+          return NuzifyAPI.getArticles(res.body.id);
         })
         .then((res) => {
           expect(res).to.have.status(200);
@@ -100,7 +100,7 @@ describe('Feed API', () => {
 
   describe('PUT /feeds', () => {
     it('should return status 400 and an error message if there is no title', () => {
-      return MunchAPI.addFeed({})
+      return NuzifyAPI.addFeed({})
         .then(() => {
           throw new Error('should throw an error');
         })
@@ -112,7 +112,7 @@ describe('Feed API', () => {
 
 
     it('should return status 400 and an error message if there is no url', () => {
-      return MunchAPI.addFeed({title:'hello'})
+      return NuzifyAPI.addFeed({title:'hello'})
         .then(() => {
           throw new Error('should throw an error');
         })
@@ -123,9 +123,9 @@ describe('Feed API', () => {
     });
 
     it('should return status 400, an error message and feed if url of the feed is already taken', () => {
-      return MunchAPI.addFeed({title:'The Verge', url:'https://theverge.com/rss.xml'})
+      return NuzifyAPI.addFeed({title:'The Verge', url:'https://theverge.com/rss.xml'})
         .then(() => {
-          return MunchAPI.addFeed({title:'The Verge', url:'https://theverge.com/rss.xml'});
+          return NuzifyAPI.addFeed({title:'The Verge', url:'https://theverge.com/rss.xml'});
         })
         .then(() => {
           throw new Error('should throw an error');
@@ -140,7 +140,7 @@ describe('Feed API', () => {
     });
 
     it('should return status 200 and the feed upon successful creation', () => {
-      return MunchAPI.addFeed({title:'The Verge', url:'https://theverge.com/rss.xml'})
+      return NuzifyAPI.addFeed({title:'The Verge', url:'https://theverge.com/rss.xml'})
         .then((res) => {
           expect(res).to.have.status(200);
           expect(res.body.id).to.not.be.empty;

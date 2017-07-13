@@ -1,10 +1,10 @@
 const { expect }= require('chai');
-const MunchAPI = require('./munch-api');
+const NuzifyAPI = require('./nuzify-api');
 
 
 module.exports = function(method, url) {
-  it('should return status 401 if no munchtoken is specified', () => {
-    return MunchAPI.fetch(url, method)
+  it('should return status 401 if no nuzifytoken is specified', () => {
+    return NuzifyAPI.fetch(url, method)
       .then(() => {
         throw new Error('should throw an error');
       })
@@ -13,8 +13,8 @@ module.exports = function(method, url) {
       });
   });
 
-  it('should return status 401 if an invalid munchtoken is specified', () => {
-    return MunchAPI.fetch(url, method, null, {cookie:'munchtoken=iAmAnInvalidToken;'})
+  it('should return status 401 if an invalid nuzifytoken is specified', () => {
+    return NuzifyAPI.fetch(url, method, null, {cookie:'nuzifytoken=iAmAnInvalidToken;'})
       .then(() => {
         throw new Error('should throw an error');
       })

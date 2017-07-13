@@ -81,11 +81,11 @@ exports.resetPassword = function(req, res) {
       Emailer.sendEmail({
         from : '"Joey Jiron" <test@test.com>', // TODO add the right email
         to : user.email,
-        subject : 'Munch password reset',
-        html: `<p>We heard that you lost your Munch password. Sorry about that!</p> 
+        subject : 'Nuzify password reset',
+        html: `<p>We heard that you lost your Nuzify password. Sorry about that!</p> 
           <p>But don’t worry! You can use the following link within the next day to reset your password:</p>
-          <p>https://munch.com/password_reset/${token}</p>
-          <p>If you don’t use this link within 24 hours, it will expire. To get a new password reset link, visit https://munch.com/password_reset</p>
+          <p>https://nuzify.com/password_reset/${token}</p>
+          <p>If you don’t use this link within 24 hours, it will expire. To get a new password reset link, visit https://nuzify.com/password_reset</p>
           <p>Thanks, <br>
             Your friends at GitHub
           </p>
