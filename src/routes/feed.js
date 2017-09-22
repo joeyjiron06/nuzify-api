@@ -11,7 +11,7 @@ const FEED_HTTP_ERROR = 'FEED_HTTP_ERROR';
  * @param {Request} req
  * @param {Response} res
  */
-exports.getFeed = function(req, res) {
+exports.getFeed = function(req, res, next) {
   let {id} = req.params;
 
   Feed.findById(id)
@@ -24,7 +24,8 @@ exports.getFeed = function(req, res) {
           id : ERROR_MESSAGES.INVALID_ID
         }
       });
-    });
+    })
+    .then(next);
 };
 
 /**
@@ -33,7 +34,7 @@ exports.getFeed = function(req, res) {
  * @param req
  * @param res
  */
-exports.addFeed = function(req, res) {
+exports.addFeed = function(req, res, next) {
   let {title, url} = req.body;
   let feed = new Feed({title, url});
 
@@ -70,7 +71,8 @@ exports.addFeed = function(req, res) {
 
         res.send(400, {errors});
       }
-    });
+    })
+    .then(next);
 };
 
 /**
@@ -79,7 +81,7 @@ exports.addFeed = function(req, res) {
  * @param req
  * @param res
  */
-exports.getArticles = function(req, res) {
+exports.getArticles = function(req, res, next) {
   let {id} = req.params;
 
   let foundFeed;
@@ -108,5 +110,6 @@ exports.getArticles = function(req, res) {
       }
 
       res.send(400, {errors});
-    });
+    })
+    .then(next);
 };

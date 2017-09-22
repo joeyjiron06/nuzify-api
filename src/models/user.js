@@ -104,7 +104,9 @@ UserSchema.statics.verifyPassword = function(user, password) {
  * @return Promise.<User|UserSchema.statics.ERROR> resolves with a user if found by id or email, or rejects with an error
  */
 UserSchema.statics.findUser = function(user) {
-  let { id, email } = user;
+  let id = user.id;
+  let email = user.email || '';
+
   let findUser = id ? this.findById(id) : this.findOne({email});
 
   return findUser
