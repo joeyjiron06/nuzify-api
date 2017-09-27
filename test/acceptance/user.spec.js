@@ -113,10 +113,6 @@ describe('User API', () => {
       maildevServer.listen(() => done());
     });
 
-    afterEach(() => {
-      maildevServer.removeAllListeners();
-    });
-
     after((done) => {
       maildevServer.end(() => done());
     });
@@ -173,13 +169,15 @@ describe('User API', () => {
 
     it('should send an actual email with a token', (done) => {
       // wait for mail server to receive a new email
-      maildevServer.on('new', email => {
+      function onNewEmail(email) {
+        maildevServer.removeListener('new', onNewEmail);
         expect(email, 'email exists').to.not.be.empty;
         expect(email.headers.from, 'should be from joey jiron').to.include('Joey Jiron');
         expect(email.headers.to, 'should be to the user').to.equal('test@test.com');
         expect(email.html, 'should have a body that contains').to.not.be.empty;
         done();
-      });
+      }
+      maildevServer.on('new', onNewEmail);
       NuzifyAPI.postUser({email:'test@test.com', password:'password'})
         .then(() => NuzifyAPI.resetPassword('test@test.com'))
     });
