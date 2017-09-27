@@ -15,7 +15,7 @@ const server = restify.createServer({
 mongoose.Promise = Promise;
 
 server.use(cookieParser.parse);
-server.use(restify.bodyParser(), (req, res, next) => {
+server.use(restify.plugins.bodyParser(), (req, res, next) => {
   req.body = req.body || {};
   next();
 });

@@ -9,7 +9,7 @@ const ERROR_MESSAGES = require('../utils/error-messages');
  * @param {Request} req
  * @param {Response} res
  */
-exports.postUser = function(req, res) {
+exports.postUser = function(req, res, next) {
   let { email, password } = req.body;
 
   let user = new User({email, password});
@@ -39,7 +39,8 @@ exports.postUser = function(req, res) {
       }
 
       res.send(status, {errors});
-    });
+    })
+    .then(next);
 };
 
 /**
@@ -48,7 +49,7 @@ exports.postUser = function(req, res) {
  * @param {Request} req
  * @param {Response} res
  */
-exports.verifyEmail = function(req, res) {
+exports.verifyEmail = function(req, res, next) {
   let { email } = req.body;
 
   User.findOne({email})
@@ -62,7 +63,8 @@ exports.verifyEmail = function(req, res) {
       res.send(200, {
         isEmailAvailable:true
       });
-    });
+    })
+    .then(next);
 };
 
 /**
@@ -71,7 +73,7 @@ exports.verifyEmail = function(req, res) {
  * @param {Request} req
  * @param {Response} res
  */
-exports.resetPassword = function(req, res) {
+exports.resetPassword = function(req, res, next) {
   let { email } = req.body;
 
   User.findUser({email})
@@ -110,5 +112,6 @@ exports.resetPassword = function(req, res) {
       }
 
       res.send(400, {errors});
-    });
+    })
+    .then(next);
 };

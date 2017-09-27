@@ -30,7 +30,7 @@ function prepareTempStorage() {
 exports.connect = function() {
   return new Promise((resolve, reject) => {
     mongoose.Promise = Promise;
-    mongoose.connect(`mongodb://localhost:${PORT}`);
+    mongoose.connect(`mongodb://localhost:${PORT}`, {useMongoClient: true});
     mongoose.connection.on('connected', (err) => {
       if (err) { reject(err);}
       else { resolve(); }

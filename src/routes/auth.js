@@ -8,7 +8,7 @@ const ERROR_MESSAGES = require('../utils/error-messages');
  * @param {Request} req
  * @param {Response} res
  */
-exports.postAuthenticate = function(req, res) {
+exports.postAuthenticate = function(req, res, next) {
   let { email, password } = req.body;
 
   User.verifyPassword({email}, password)
@@ -34,7 +34,8 @@ exports.postAuthenticate = function(req, res) {
       }
 
       res.send(400, {errors});
-    });
+    })
+    .then(next);
 };
 
 /**
@@ -78,7 +79,7 @@ exports.verifyResetPasswordToken  = function(req, res, next) {
         next();
       } else {
         res.send(401, {});
-        next(new Error('no user found'));
+        next(false);
       }
     });
 };

@@ -122,7 +122,7 @@ exports.deleteMe = function(req, res) {
  * @param {Request} req
  * @param {Response} res
  */
-exports.updatePassword = function(req, res) {
+exports.updatePassword = function(req, res, next) {
   let { old_password, new_password } = req.body;
   let { user } = req;
 
@@ -154,7 +154,8 @@ exports.updatePassword = function(req, res) {
       }
 
       res.send(400, {errors});
-    });
+    })
+    .then(next);
 };
 
 /**
@@ -163,7 +164,7 @@ exports.updatePassword = function(req, res) {
  * @param {Request} req
  * @param {Response} res
  */
-exports.updatePasswordWithToken = function(req, res) {
+exports.updatePasswordWithToken = function(req, res, next) {
   let { new_password } = req.body;
   let { user } = req;
 
@@ -185,5 +186,6 @@ exports.updatePasswordWithToken = function(req, res) {
     }
 
     res.send(400, {errors});
-  });
+  })
+  .then(next);
 };
