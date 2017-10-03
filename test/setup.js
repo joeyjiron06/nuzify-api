@@ -4,10 +4,14 @@ const prepare = require('mocha-prepare');
 const MockMongoose = require('./lib/mock-mongoose');
 const config = require('../src/config');
 
+
 chai.use(chaiHttp);
 
 prepare(function (done) {
 
+  process.env.GA_TRACKING_ID = 'test';
+  process.env.GA_ENDPOINT_URL='http://somegoogle.api.com/collect';
+  
   // change the config for testing
   config.jwtSecret = 'testsecret';
   config.nodemailer = {
@@ -31,7 +35,7 @@ prepare(function (done) {
         done();
       })
       .catch((err) => {
-        console.error('error initializing mongodb');
+        console.error('error initializing mongodb', err);
         throw err;
       });
   }
