@@ -10,7 +10,12 @@ exports.buildPayload = function(req, res) {
   return {
     v : '1',
     cid : 1,
-    tid : process.env.GA_TRACKING_ID
+    tid : process.env.GA_TRACKING_ID,
+    t : 'timing',
+    utc : req.method,
+    utt : (Date.now() - req._time),
+    utv : req.path(), //timing variable
+    utl : res.statusCode // Timing label.
   };
 };
 
