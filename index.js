@@ -66,10 +66,6 @@ server.on('after', function(req, res, route, err) {
         //     path: req.path(),
         // };
 
-        try {
-
-     
-
         metrics({
           t : 'timing', // event type
           utc : req.method, // timing category
@@ -79,12 +75,9 @@ server.on('after', function(req, res, route, err) {
 
         })
         .catch((err) => {
-          console.error('error in metrics sending', err);
+          // console.error('error in metrics sending', err);
         });
 
-      } catch(e) {
-        
-      }
 
         // &utc=jsonLoader  // Timing category.
         // &utv=load        // Timing variable.

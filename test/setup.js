@@ -10,7 +10,7 @@ chai.use(chaiHttp);
 prepare(function (done) {
 
   process.env.GA_TRACKING_ID = 'test';
-  process.env.GA_ENDPOINT_URL='http://somegoogle.api.com/collect';
+  process.env.GA_BASE_URL ='http://localhost:9000'; // local test server
   
   // change the config for testing
   config.jwtSecret = 'testsecret';

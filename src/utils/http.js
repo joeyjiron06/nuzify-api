@@ -53,14 +53,13 @@ class Http {
       let request = (options.protocol === 'https:') ? https.request : http.request;
       let body;
 
-      // if (options.body) {
-      //   body = JSON.stringify(options.body);
-      //   options.headers = options.headers || {};
-      //   options.headers['Content-Type'] = 'application/json';
-      //   options.headers['Content-Length'] = Buffer.byteLength(body);
-      // }
+      if (options.body) {
+        body = JSON.stringify(options.body);
+        options.headers = options.headers || {};
+        options.headers['Content-Type'] = 'application/json';
+        options.headers['Content-Length'] = Buffer.byteLength(body);
+      }
 
-      try {
       request = request(options, (response) => {
 
         response.on('data', function (chunk) {
@@ -89,31 +88,19 @@ class Http {
             reject(response);
           }
         });
-      })
+      });
 
-      try {
-        request.end();
-      } catch(e) {
-        console.error('error ending request', e);
-        
+      request.on('error', (err) => {
+        console.log('error on req');
+        reject(err);
+      });
+
+      if (body) {
+        console.log('sending body', body);
+        request.write(body);
       }
 
-    } catch(e) {
-      console.error('error requesting', e);
-      
-    }
-
-      // if (body) {
-      //   try {
-      //     // request.write(body);
-      //   } catch(e) {
-      //     console.error('error wrigin body', e);
-      //   }
-      // }
-
- 
-      
-
+      request.end();
     });
   }
 }
