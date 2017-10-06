@@ -2,7 +2,6 @@ const expect = require('chai').expect;
 const metrics = require('../../src/utils/metrics');
 
 describe('Metrics', () => {
-
   describe('buildPayload', function() {
     it('should throw an error when invalid args are passed in', function() {
       let error;
