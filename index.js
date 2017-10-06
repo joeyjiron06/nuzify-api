@@ -14,6 +14,17 @@ const server = restify.createServer({
 });
 
 mongoose.Promise = Promise;
+if (process.env.MONGODB_URI) {
+  mongoose.createConnection(process.env.MONGODB_URI)
+    .then(() => {
+      console.log('connected to mongodb!');
+    })
+    .catch((err) => {
+      console.error('error connecting to mongodb');
+      throw err;
+    });
+}
+
 
 server.use(cookieParser.parse);
 server.use(restify.plugins.bodyParser(), (req, res, next) => {
