@@ -24,18 +24,15 @@ describe('Metrics', () => {
         statusCode : 200
       };
       let payload = metrics.buildPayload(req, res);
-      let expected = {
-        v : '1',
-        cid : 1,
-        tid : process.env.GA_TRACKING_ID,
-        t : 'timing',  // event type
-        utc : req.method, // timing category
-        utt : (Date.now() - req._time), // timing time
-        utv : req.path(), //timing variable
-        utl : res.statusCode // Timing label.
-      };
-    
-      expect(payload).to.deep.equal(expected);
+
+      expect(payload.v).to.deep.equal('1');
+      expect(payload.cid).to.deep.equal(1);
+      expect(payload.tid).to.deep.equal(process.env.GA_TRACKING_ID);
+      expect(payload.t).to.deep.equal('timing');
+      expect(payload.utc).to.deep.equal(req.method);
+      expect(payload.utt).to.be.greaterThan(0);
+      expect(payload.utv).to.deep.equal(req.path());
+      expect(payload.utl).to.deep.equal(res.statusCode);
     });
   });
 });
