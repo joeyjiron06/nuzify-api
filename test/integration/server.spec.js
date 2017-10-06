@@ -1,6 +1,5 @@
 const { expect } = require('chai');
 const MockMongoose = require('../lib/mock-mongoose');
-const http = require('../../src/utils/http');
 const NuzifyAPI = require('../lib/nuzify-api');
 const server = require('../../index');
 let routes = [];

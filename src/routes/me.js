@@ -9,12 +9,13 @@ const ERROR_MESSAGES = require('../utils/error-messages');
  * @param {Request} req
  * @param {Response} res
  */
-exports.getFeeds = function(req, res) {
+exports.getFeeds = function(req, res, next) {
   User.findById(req.user._id)
     .populate('feeds')
     .exec()
     .then((user) => {
       res.send(200, user.feeds);
+      next();
     });
 };
 
@@ -24,7 +25,7 @@ exports.getFeeds = function(req, res) {
  * @param {Request} req
  * @param {Response} res
  */
-exports.addFeed = function(req, res) {
+exports.addFeed = function(req, res, next) {
   let user = req.user;
   let feedId = req.body.id;
 
@@ -35,6 +36,7 @@ exports.addFeed = function(req, res) {
       return user.save()
         .then(() => {
           res.send(200, feed);
+          next();
         });
     })
     .catch(() => {
@@ -43,6 +45,7 @@ exports.addFeed = function(req, res) {
           id : ERROR_MESSAGES.INVALID_ID
         }
       });
+      next(false);
     });
 };
 
@@ -52,7 +55,7 @@ exports.addFeed = function(req, res) {
  * @param {Request} req
  * @param {Response} res
  */
-exports.deleteFeed = function (req, res) {
+exports.deleteFeed = function (req, res, next) {
   let user = req.user;
   let feedId = req.body.id;
 
@@ -67,17 +70,18 @@ exports.deleteFeed = function (req, res) {
       errors : {
         id : ERROR_MESSAGES.NOT_A_SAVED_FEED_ID
       }
-    })
+    });
+    next(false);
   } else {
     user.save()
       .then(() => {
         res.send(200, {});
+        next();
       });
   }
 
 
 };
-
 
 /**
  * GEt /me
@@ -85,13 +89,14 @@ exports.deleteFeed = function (req, res) {
  * @param {Request} req
  * @param {Response} res
  */
-exports.getMe = function(req, res) {
+exports.getMe = function(req, res, next) {
   let { user } = req;
 
   res.send(200, {
     id : user._id,
     email : user.email
   });
+  next();
 };
 
 /**
@@ -100,12 +105,13 @@ exports.getMe = function(req, res) {
  * @param {Request} req
  * @param {Response} res
  */
-exports.deleteMe = function(req, res) {
+exports.deleteMe = function(req, res, next) {
   let { id } = req.user;
 
   User.remove({_id:id})
     .then(() => {
       res.send(200, {});
+      next();
     })
     .catch(() => {
       res.send(400, {
@@ -113,6 +119,7 @@ exports.deleteMe = function(req, res) {
           id: ERROR_MESSAGES.INVALID_ID
         }
       });
+      next(false);
     });
 };
 

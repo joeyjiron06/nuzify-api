@@ -2,6 +2,7 @@ const Feed  = require('./src/routes/feed');
 const User = require('./src/routes/user');
 const Me = require('./src/routes/me');
 const Auth = require('./src/routes/auth');
+const metrics = require('./src/utils/metrics');
 const config = require('./src/config');
 const mongoose = require('mongoose');
 const restify = require('restify');
@@ -44,6 +45,11 @@ server.put('/v1/me/feeds', Auth.verifyUser, Me.addFeed);
 server.del('/v1/me/feeds', Auth.verifyUser, Me.deleteFeed);
 server.post('/v1/me/update-password', Auth.verifyUser, Me.updatePassword);
 server.post('/v1/me/update-password/:token', Auth.verifyResetPasswordToken, Me.updatePasswordWithToken);
+
+// report metrics
+server.on('after', function(req, res, route, err) {
+  metrics.report(req, res);
+});
 
 console.log('listening on port', config.port);
 

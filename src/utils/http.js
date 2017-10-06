@@ -43,6 +43,7 @@ class Http {
    * @param url {string}       - the url to fetch
    * @param options {object}   - an options object that is used to passed to the node request library
    *                             read the docs here https://nodejs.org/api/http.html#http_http_request_options_callback
+   * @param options.body {object} - data to send with the request
    * @return {Promise} a promise that resolves with a response object. read docs here https://nodejs.org/api/http.html#http_class_http_incomingmessage
    * */
   static fetch(url, options) {
@@ -50,8 +51,16 @@ class Http {
       options = Object.assign({}, parseUrl(url), options);
 
       let request = (options.protocol === 'https:') ? https.request : http.request;
+      let body;
 
-      request(options, (response) => {
+      if (options.body) {
+        body = JSON.stringify(options.body);
+        options.headers = options.headers || {};
+        options.headers['Content-Type'] = 'application/json';
+        options.headers['Content-Length'] = Buffer.byteLength(body);
+      }
+
+      request = request(options, (response) => {
 
         response.on('data', function (chunk) {
           response.chunks = response.chunks || [];
@@ -79,9 +88,19 @@ class Http {
             reject(response);
           }
         });
-      })
-        .end();
+      });
 
+      request.on('error', (err) => {
+        console.log('error on req');
+        reject(err);
+      });
+
+      if (body) {
+        console.log('sending body', body);
+        request.write(body);
+      }
+
+      request.end();
     });
   }
 }
