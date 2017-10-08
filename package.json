@@ -4,7 +4,7 @@
   "description": "A REST service that parses RSS feeds and returns JSON data",
   "main": "index.js",
   "scripts": {
-    "deploy-dev" : "gcloud app deploy --project nuzify-dev",
+    "deploy-dev": "gcloud app deploy --project nuzify-dev",
     "start": "node index.js",
     "test": "mocha test/**/*.spec.js",
     "test-acceptance": "mocha test/acceptance/**.spec.js",
@@ -37,8 +37,8 @@
     "mocha-prepare": "0.0.1",
     "mongodb-prebuilt": "^6.3.1"
   },
-  "engines" : {
-    "node" : "^6.11.0",
-    "npm" : "^5.1.0"
+  "engines": {
+    "node": "^6.11.0",
+    "npm": "^5.1.0"
   }
 }
