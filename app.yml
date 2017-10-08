@@ -1,3 +1,3 @@
-# for Google Cloud deployment
-runtime: nodejs
+# for Google Cloud deployment - see dockerfile for the custom environemnt
+runtime: custom
 env: flex
