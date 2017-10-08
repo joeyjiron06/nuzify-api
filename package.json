@@ -36,5 +36,9 @@
     "mocha": "^3.2.0",
     "mocha-prepare": "0.0.1",
     "mongodb-prebuilt": "^6.3.1"
+  },
+  "engines" : {
+    "node" : ">=6.11.0 <7.0.0",
+    "npm" : ">=5.1.0 < 6.0.0"
   }
 }
