@@ -4,6 +4,7 @@
   "description": "A REST service that parses RSS feeds and returns JSON data",
   "main": "index.js",
   "scripts": {
+    "deploy-dev" : "gcloud app deploy --project nuzify-dev",
     "start": "node index.js",
     "test": "mocha test/**/*.spec.js",
     "test-acceptance": "mocha test/acceptance/**.spec.js",
