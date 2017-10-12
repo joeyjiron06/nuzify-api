@@ -26,7 +26,7 @@ if (process.env.MONGODB_URI) {
   });
 }
 
-
+server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(cookieParser.parse);
 server.use(restify.plugins.bodyParser(), (req, res, next) => {
   req.body = req.body || {};
