@@ -15,7 +15,9 @@ const server = restify.createServer({
 
 mongoose.Promise = Promise;
 if (process.env.MONGODB_URI) {
-  mongoose.connect(process.env.MONGODB_URI, {}, function(err) {
+  mongoose.connect(process.env.MONGODB_URI, {
+    useMongoClient : true
+  }, function(err) {
     if (err) {
       throw err;
     }
