@@ -1,3 +1,7 @@
 # for Google Cloud deployment
 runtime: nodejs
 env: flex
+handlers:
+- url: /.*
+  script: index.js
+  secure: always
